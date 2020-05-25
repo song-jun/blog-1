@@ -1,0 +1,5 @@
+node_modules
+yarn.lock
+
+# 编译生成的静态站点
+docs/.vuepress/dist
