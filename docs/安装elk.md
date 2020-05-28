@@ -1,0 +1,327 @@
+[[toc]]
+
+# 1. 约定
+
+操作系统：Ubuntu 16.04.3 LTS
+
+# 2. 准备资源
+
+jdk-8u144-linux-x64.tar.gz
+
+elasticsearch-6.1.1.tar.gz
+
+logstash-6.1.1.tar.gz
+
+kibana-6.1.1-linux-x86_64.tar.gz
+
+mysql-connector-java-5.1.41.jar
+
+# 3. 安装
+
+## 3.1 安装前准备操作
+
+_**注意：所有安装操作都在 docker 内执行**_
+
+docker run -itd --privileged --name elk-ubuntu -p 9100:9100 -p 9200:9200 -p 9300:9300 -p 5601:5601 ubuntu:16.04
+
+docker cp /data/programInstaller/elasticsearch-6.1.1.tar.gz 28:/root/
+
+docker cp /data/programInstaller/jdk-8u144-linux-x64.tar.gz 28:/root/
+
+docker cp /data/programInstaller/kibana-6.1.1-linux-x86_64.tar.gz 28:/root/
+
+docker cp /data/programInstaller/logstash-6.1.1.tar.gz 28:/root/
+
+docker cp /data/programInstaller/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar 28:/root/
+
+docker exec -it 28 bash
+
+apt-get update
+
+apt-get install vim curl net-tools -y
+
+#优化配置
+
+vi /etc/security/limits.conf
+
+```
+- soft nofile 65536
+- hard nofile 131072
+- soft nproc 2048
+- hard nproc 4096
+```
+
+vi /etc/security/limits.d/90-nproc.conf
+
+```
+-          soft    nproc     4096
+  root soft nproc unlimited
+```
+
+vi /etc/sysctl.conf
+
+```
+vm.max_map_count=262144
+```
+
+sysctl -p
+
+cd /root
+
+tar -zxvf /root/jdk-8u144-linux-x64.tar.gz -C /usr/local/
+
+vi /etc/profile.d/jdk.sh
+
+```
+#java
+export JAVA_HOME=/usr/local/jdk1.8.0_144
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+
+source /etc/profile
+
+tar -zxvf /root/elasticsearch-6.1.1.tar.gz -C /usr/local/
+
+tar -zxvf /root/kibana-6.1.1-linux-x86_64.tar.gz -C /usr/local/
+
+tar -zxvf /root/logstash-6.1.1.tar.gz -C /usr/local/
+
+cp /root/mysql-connector-java-5.1.41.jar /usr/local/logstash-6.1.1/
+
+groupadd elkusergroup
+
+useradd elkuser -g elkusergroup -m
+
+chown -R elkuser:elkusergroup /usr/local/elasticsearch-6.1.1/
+
+chown -R elkuser:elkusergroup /usr/local/kibana-6.1.1-linux-x86_64/
+
+chown -R elkuser:elkusergroup /usr/local/logstash-6.1.1/
+
+su elkuser
+
+## 3.2 安装 elasticsearch
+
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install x-pack
+
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.1.1/elasticsearch-analysis-ik-6.1.1.zip
+
+vi /usr/local/elasticsearch-6.1.1/config/elasticsearch.yml
+
+```
+network.host: 0.0.0.0
+cluster.name: my-elastic-cluster1
+node.name: elastic-node-1 #如果禁用安全组件，那么就没有了用户管理功能;如果要集成 logstash，那么暂时先做如下配置才能对接成功，否则可能需要做 ssl 相关配置才行 #如果没有安装 x-pack，则不需要如下配置
+xpack.security.enabled: false
+```
+
+vi /usr/local/elasticsearch-6.1.1/config/jvm.options
+
+```
+-Xms3g
+-Xmx3g
+```
+
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch --verbose -d
+
+#设置 elastic，kibana,logstash_system 的密码[约定都设置为 123456].用户名分别为 elastic,kibana,logstash_system #如果没有安装 x-pack，则不需要如下设置密码操作
+
+/usr/local/elasticsearch-6.1.1/bin/x-pack/setup-passwords interactive
+
+## 3.3 安装 logstash
+
+/usr/local/logstash-6.1.1/bin/logstash-plugin install x-pack
+
+_**需要确保源数据库的表中含有 update_time 字段**_
+
+vi /usr/local/logstash-6.1.1/config/logstash.conf
+
+```
+input {
+stdin {
+}
+jdbc {
+jdbc_connection_string => "jdbc:mysql://172.16.38.73:3306/beauty2"
+jdbc_user => "root"
+jdbc_password => "123456"
+jdbc_driver_library => "/usr/local/logstash-6.1.1/mysql-connector-java-5.1.41.jar"
+jdbc_driver_class => "com.mysql.jdbc.Driver"
+jdbc_paging_enabled => "true"
+jdbc_page_size => "50000"
+
+statement_filepath => "/usr/local/logstash-6.1.1/jdbc.sql"
+use_column_value => "true"
+tracking_column => "update_time"
+schedule => "\* \* \* \* \*"
+}
+}
+
+output {
+elasticsearch {
+hosts => ["http://localhost:9200"]
+
+       index => "beauty2"
+       document_type => "gallery"
+       document_id => "%{id}"
+
+       template => "/usr/local/logstash-6.1.1/template/logstash.json"
+       template_overwrite => true
+    }
+    stdout{
+       codec=>json_lines
+    }
+
+}
+```
+
+vi /usr/local/logstash-6.1.1/jdbc.sql
+
+```
+SELECT \* FROM sys_gallery where update_time > :sql_last_value
+```
+
+mkdir /usr/local/logstash-6.1.1/template
+
+vi /usr/local/logstash-6.1.1/template/logstash.json
+
+```
+{
+"template": "_",
+"version": 60001,
+"settings": {
+"index": {
+"refresh*interval": "5s"
+}
+},
+"mappings": {
+"\_default*": {
+"dynamic_templates": [
+{
+"message_field": {
+"path_match": "message",
+"match_mapping_type": "string",
+"mapping": {
+"type": "text",
+"norms": false,
+"analyzer": "ik_max_word",
+"search_analyzer": "ik_smart"
+}
+}
+},
+{
+"string_fields": {
+"match": "_",
+"match_mapping_type": "string",
+"mapping": {
+"type": "text",
+"norms": false,
+"analyzer": "ik_max_word",
+"search_analyzer": "ik_smart",
+"fields": {
+"keyword": {
+"type": "keyword",
+"ignore_above": 256
+}
+}
+}
+}
+}
+],
+"properties": {
+"@timestamp": {
+"type": "date"
+},
+"@version": {
+"type": "keyword"
+},
+"geoip": {
+"dynamic": true,
+"properties": {
+"ip": {
+"type": "ip"
+},
+"location": {
+"type": "geo_point"
+},
+"latitude": {
+"type": "half_float"
+},
+"longitude": {
+"type": "half_float"
+}
+}
+}
+}
+}
+},
+"aliases": {}
+}
+```
+
+/usr/local/logstash-6.1.1/bin/logstash -f /usr/local/logstash-6.1.1/config/logstash.conf
+
+## 3.4 安装 kibana
+
+/usr/local/kibana-6.1.1-linux-x86_64/bin/kibana-plugin install x-pack
+
+vi /usr/local/kibana-6.1.1-linux-x86_64/config/kibana.yml
+
+```
+server.host: "0.0.0.0"
+elasticsearch.url: "http://localhost:9200"
+
+#如果没有安装 x-pack，则不需要如下 2 行配置
+elasticsearch.username: "elastic"
+elasticsearch.password: "123456"
+```
+
+nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-linux-x86_64/log 2>&1 &
+
+## 3.5 安装 elasticsearch-head
+
+可以安装独立的 head 服务[默认端口 9100],也可以改用 chrome 浏览器的 elasticsearch-head 插件
+
+# 4. 安装验证
+
+_**可在宿主机操作**_
+
+## 4.1 验证 elastic
+
+浏览器访问:http://localhost:9200/?pretty
+
+账号密码(安装步骤中已设置)：elastic/123456
+
+## 4.2 验证 kibana
+
+浏览器访问:http://localhost:5601
+
+账号密码(安装步骤中已设置)：kibana/123456
+
+# 5. 备注
+
+## 5.1 配置自定义词典
+
+### 5.1.1 将自定义词典文件放到 web 服务
+
+例如访问路径http://172.16.38.73:8081/meitu_ik_custom.dic
+
+文件格式如下(要求 utf8 编码)
+
+```
+美臀
+爆乳
+```
+
+### 5.1.2 配置 elasticsearch
+
+vi /usr/local/elasticsearch-6.1.1/config/analysis-ik/IKAnalyzer.cfg.xml
+
+```
+<!-- 指定远程扩展字典服务 -->
+<entry key="remote_ext_dict">http://172.16.38.73:8081/meitu_ik_custom.dic</entry>
+```
+
+### 5.1.3 重启 elasticsearch
+
+_**若想对历史文档应用自定义词典,则需要重新导入历史文档**_
