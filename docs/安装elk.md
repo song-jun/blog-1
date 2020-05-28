@@ -20,7 +20,9 @@ mysql-connector-java-5.1.41.jar
 
 ## 3.1 安装前准备操作
 
-_**注意：所有安装操作都在 docker 内执行**_
+::: tip 注意
+所有安装操作都在 docker 内执行
+:::
 
 docker run -itd --privileged --name elk-ubuntu -p 9100:9100 -p 9200:9200 -p 9300:9300 -p 5601:5601 ubuntu:16.04
 
@@ -133,7 +135,9 @@ vi /usr/local/elasticsearch-6.1.1/config/jvm.options
 
 /usr/local/logstash-6.1.1/bin/logstash-plugin install x-pack
 
-_**需要确保源数据库的表中含有 update_time 字段**_
+::: tip 注意
+需要确保源数据库的表中含有 update_time 字段
+:::
 
 vi /usr/local/logstash-6.1.1/config/logstash.conf
 
@@ -284,7 +288,9 @@ nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-l
 
 # 4. 安装验证
 
-_**可在宿主机操作**_
+::: tip 注意
+可在宿主机操作
+:::
 
 ## 4.1 验证 elastic
 
@@ -324,4 +330,6 @@ vi /usr/local/elasticsearch-6.1.1/config/analysis-ik/IKAnalyzer.cfg.xml
 
 ### 5.1.3 重启 elasticsearch
 
-_**若想对历史文档应用自定义词典,则需要重新导入历史文档**_
+::: tip 注意
+若想对历史文档应用自定义词典,则需要重新导入历史文档
+:::
