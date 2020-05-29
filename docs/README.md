@@ -4,7 +4,7 @@ heroImage: http://gallery-src.opgirl.cn/news/9fe5692c-01d9-11ea-8da0-759aa36307f
 heroText: 开发笔记
 tagline: 前端,后台,移动开发,linux,运维等技术
 actionText: 开始您的旅程 →
-actionLink: /安装elk.html
+actionLink: /back/
 features:
   - title: java生态圈
     details: 讲述java生态圈前沿技术

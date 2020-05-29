@@ -1,3 +1,10 @@
+---
+title: vuepress教程
+permalink: /vuepress/usage.html
+---
+
+[[toc]]
+
 # 1. 生成目录
 
 ## 1.1 声明目录生成标记
@@ -28,3 +35,7 @@ module.exports = {
 _**includeLevel 默认值为[2, 3], 所以不显示一级标题**_
 
 ## 1.3. 重新编译
+
+# 2. 搜索
+
+内置搜索只会为页面的**标题、h2 、 h3 以及 tags** 构建搜索索引。 如果你需要全文搜索，你可以使用 Algolia 搜索

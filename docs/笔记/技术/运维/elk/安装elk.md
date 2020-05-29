@@ -1,3 +1,8 @@
+---
+title: 安装elk
+permalink: /ops/elk/install-elk.html
+---
+
 [[toc]]
 
 # 1. 约定
