@@ -4,6 +4,7 @@
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
+    "moment": "^2.26.0",
     "vuepress": "^1.5.0"
   }
 }
