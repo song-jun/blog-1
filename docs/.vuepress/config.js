@@ -4,5 +4,13 @@ module.exports = {
 
   markdown: {
     toc: { includeLevel: [1, 2, 3, 4] }
+  },
+
+  themeConfig: {
+    nav: [
+      { text: "前端", link: "/front/" },
+      { text: "后台", link: "/back/" },
+      { text: "运维", link: "/ops/" }
+    ]
   }
 };
