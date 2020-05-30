@@ -34,7 +34,7 @@ module.exports = {
           return moment(timestamp).format("YYYY-MM-DD hh:mm:ss");
         }
       }
-      /*****************end 自定义lastUpdated的显示格式 ************/
+      /*****************end 自定义"文章底部更新时间"的显示格式 ************/
     ]
   ]
 };
