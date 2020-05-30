@@ -5,11 +5,11 @@ permalink: /ops/elk/install-elk.html
 
 [[toc]]
 
-# 1. 约定
+## 1. 约定
 
 操作系统：Ubuntu 16.04.3 LTS
 
-# 2. 准备资源
+## 2. 准备资源
 
 jdk-8u144-linux-x64.tar.gz
 
@@ -21,9 +21,9 @@ kibana-6.1.1-linux-x86_64.tar.gz
 
 mysql-connector-java-5.1.41.jar
 
-# 3. 安装
+## 3. 安装
 
-## 3.1 安装前准备操作
+### 3.1 安装前准备操作
 
 ::: tip 注意
 所有安装操作都在 docker 内执行
@@ -108,7 +108,7 @@ chown -R elkuser:elkusergroup /usr/local/logstash-6.1.1/
 
 su elkuser
 
-## 3.2 安装 elasticsearch
+### 3.2 安装 elasticsearch
 
 /usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install x-pack
 
@@ -136,7 +136,7 @@ vi /usr/local/elasticsearch-6.1.1/config/jvm.options
 
 /usr/local/elasticsearch-6.1.1/bin/x-pack/setup-passwords interactive
 
-## 3.3 安装 logstash
+### 3.3 安装 logstash
 
 /usr/local/logstash-6.1.1/bin/logstash-plugin install x-pack
 
@@ -270,7 +270,7 @@ vi /usr/local/logstash-6.1.1/template/logstash.json
 
 /usr/local/logstash-6.1.1/bin/logstash -f /usr/local/logstash-6.1.1/config/logstash.conf
 
-## 3.4 安装 kibana
+### 3.4 安装 kibana
 
 /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana-plugin install x-pack
 
@@ -287,33 +287,33 @@ elasticsearch.password: "123456"
 
 nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-linux-x86_64/log 2>&1 &
 
-## 3.5 安装 elasticsearch-head
+### 3.5 安装 elasticsearch-head
 
 可以安装独立的 head 服务[默认端口 9100],也可以改用 chrome 浏览器的 elasticsearch-head 插件
 
-# 4. 安装验证
+## 4. 安装验证
 
 ::: tip 注意
 可在宿主机操作
 :::
 
-## 4.1 验证 elastic
+### 4.1 验证 elastic
 
 浏览器访问:http://localhost:9200/?pretty
 
 账号密码(安装步骤中已设置)：elastic/123456
 
-## 4.2 验证 kibana
+### 4.2 验证 kibana
 
 浏览器访问:http://localhost:5601
 
 账号密码(安装步骤中已设置)：kibana/123456
 
-# 5. 备注
+## 5. 备注
 
-## 5.1 配置自定义词典
+### 5.1 配置自定义词典
 
-### 5.1.1 将自定义词典文件放到 web 服务
+#### 5.1.1 将自定义词典文件放到 web 服务
 
 例如访问路径http://172.16.38.73:8081/meitu_ik_custom.dic
 
@@ -324,7 +324,7 @@ nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-l
 爆乳
 ```
 
-### 5.1.2 配置 elasticsearch
+#### 5.1.2 配置 elasticsearch
 
 vi /usr/local/elasticsearch-6.1.1/config/analysis-ik/IKAnalyzer.cfg.xml
 
@@ -333,7 +333,7 @@ vi /usr/local/elasticsearch-6.1.1/config/analysis-ik/IKAnalyzer.cfg.xml
 <entry key="remote_ext_dict">http://172.16.38.73:8081/meitu_ik_custom.dic</entry>
 ```
 
-### 5.1.3 重启 elasticsearch
+#### 5.1.3 重启 elasticsearch
 
 ::: tip 注意
 若想对历史文档应用自定义词典,则需要重新导入历史文档
