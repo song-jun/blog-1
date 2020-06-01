@@ -15,39 +15,49 @@ module.exports = {
     ],
 
     // 侧边栏,注意, h1标题不会生成在侧边栏
-    sidebar: [
-      {
-        title: "后台", // 必要的
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 2, // 可选的, 默认值是 1
-        children: ["/笔记/技术/后台/"]
-      },
-      {
-        title: "运维", // 必要的
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 2, // 可选的, 默认值是 1
-        children: [
-          "/笔记/技术/运维/",
-          "/笔记/技术/运维/php/安装php7",
-          "/笔记/技术/运维/python/安装python3",
-          "/笔记/技术/运维/redis/安装redis集群",
-          "/笔记/技术/运维/tomcat/tomcat的jmx配置",
-          "/笔记/技术/运维/tomcat/tomcat的jmx配置",
-          "/笔记/技术/运维/elk/安装elk"
-        ]
-      },
-      {
-        title: "其它", // 必要的
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 2, // 可选的, 默认值是 1
-        children: [
-          "/笔记/技术/其它/",
-          "/笔记/技术/其它/面试/java面试题目",
-          "/笔记/技术/其它/markdown/markdown用法",
-          "/笔记/技术/其它/markdown/vuepress教程"
-        ]
-      }
-    ],
+    sidebar: {
+      "/笔记/技术/": [
+        {
+          title: "后台", // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: ["/笔记/技术/后台/"]
+        },
+        {
+          title: "运维", // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "/笔记/技术/运维/",
+            "/笔记/技术/运维/php/安装php7",
+            "/笔记/技术/运维/python/安装python3",
+            "/笔记/技术/运维/redis/安装redis集群",
+            "/笔记/技术/运维/tomcat/tomcat的jmx配置",
+            "/笔记/技术/运维/tomcat/tomcat的jmx配置",
+            "/笔记/技术/运维/elk/安装elk"
+          ]
+        },
+        {
+          title: "其它", // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "/笔记/技术/其它/",
+            "/笔记/技术/其它/面试/java面试题目",
+            "/笔记/技术/其它/markdown/markdown用法",
+            "/笔记/技术/其它/markdown/vuepress教程"
+          ]
+        }
+      ],
+      "/笔记/工作/": [
+        {
+          title: "欧朋", // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: ["/笔记/工作/欧朋/美图2"]
+        }
+      ]
+    },
 
     // 文章底部显示更新时间
     lastUpdated: "上次更新"
