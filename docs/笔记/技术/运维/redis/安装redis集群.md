@@ -1,6 +1,6 @@
 ---
 title: 安装redis集群
-permalink: /back/redis/install-redis-cluster.html
+permalink: /ops/redis/install-redis-cluster.html
 ---
 
 [[toc]]

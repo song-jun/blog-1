@@ -1,6 +1,6 @@
 ---
 title: 安装php7
-permalink: /back/php/install-php7.html
+permalink: /ops/php/install-php7.html
 ---
 
 [[toc]]

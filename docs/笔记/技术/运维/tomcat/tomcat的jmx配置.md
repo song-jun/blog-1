@@ -1,6 +1,6 @@
 ---
 title: tomcat配置jmx
-permalink: /back/tomcat/tomcat-config.html
+permalink: /ops/tomcat/tomcat-config.html
 ---
 
 [[toc]]

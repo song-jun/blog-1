@@ -1,6 +1,6 @@
 ---
 title: 安装python3
-permalink: /back/python/install-python3.html
+permalink: /ops/python/install-python3.html
 ---
 
 [[toc]]
