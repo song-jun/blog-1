@@ -41,3 +41,7 @@ includeLevel 默认值为[2, 3], 所以不显示一级标题
 ## 2. 搜索
 
 内置搜索只会为页面的**标题、h2 、 h3 以及 tags** 构建搜索索引。 如果你需要全文搜索，你可以使用 Algolia 搜索
+
+## 3. 代码块增加"拷贝"按钮
+
+见https://github.com/znicholasbrown/vuepress-plugin-code-copy
