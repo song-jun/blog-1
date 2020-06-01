@@ -45,3 +45,11 @@ includeLevel 默认值为[2, 3], 所以不显示一级标题
 ## 3. 代码块增加"拷贝"按钮
 
 见https://github.com/znicholasbrown/vuepress-plugin-code-copy
+
+## 4. 侧边栏
+
+侧边栏是按照"本地文档的实际目录结构"进行定义,不关心文档的实际 url 访问路径
+
+::: tip 注意
+h1 标题不会生成在侧边栏
+:::

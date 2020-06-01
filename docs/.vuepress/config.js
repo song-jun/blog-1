@@ -15,7 +15,21 @@ module.exports = {
     ],
 
     // 侧边栏,注意, h1标题不会生成在侧边栏
-    sidebar: "auto",
+    sidebar: [
+      "/",
+      "/笔记/技术/后台/",
+      "/笔记/技术/后台/php/安装php7",
+      "/笔记/技术/后台/python/安装python3",
+      "/笔记/技术/后台/redis/安装redis集群",
+      "/笔记/技术/后台/tomcat/tomcat的jmx配置",
+      "/笔记/技术/后台/tomcat/tomcat的jmx配置",
+      "/笔记/技术/其它/",
+      "/笔记/技术/其它/面试/java面试题目",
+      "/笔记/技术/其它/markdown/markdown用法",
+      "/笔记/技术/其它/markdown/vuepress教程",
+      "/笔记/技术/运维/",
+      "/笔记/技术/运维/elk/安装elk"
+    ],
     sidebarDepth: 2,
 
     // 文章底部显示更新时间
