@@ -61,3 +61,7 @@ h1 标题不会生成在侧边栏
 ::: tip 注意
 若想对侧边栏进行分类, 必须以目录结构进行分类, 即相同类别的文档的根目录是相同的
 :::
+
+## 5. 部署到 github
+
+见https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages

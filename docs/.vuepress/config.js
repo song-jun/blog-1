@@ -80,5 +80,8 @@ module.exports = {
 
     // 代码块增加"拷贝"按钮
     ["vuepress-plugin-code-copy", true]
-  ]
+  ],
+
+  //配置base, 将服务发布到github pages
+  base: "/blog/"
 };
