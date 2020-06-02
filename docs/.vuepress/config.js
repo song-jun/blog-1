@@ -54,7 +54,8 @@ module.exports = {
             "/笔记/技术/其它/",
             "/笔记/技术/其它/面试/java面试题目",
             "/笔记/技术/其它/markdown/markdown用法",
-            "/笔记/技术/其它/markdown/vuepress教程"
+            "/笔记/技术/其它/markdown/vuepress教程",
+            "/笔记/技术/其它/markdown/部署免费图床"
           ]
         }
       ],
