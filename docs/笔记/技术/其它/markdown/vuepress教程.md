@@ -65,3 +65,17 @@ h1 标题不会生成在侧边栏
 ## 5. 部署到 github
 
 见https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages
+
+### 5.1 自定义域名
+
+#### 5.1.1 创建 cname 域名
+
+到域名管理页面, 创建 cname 域名(如 blog.sofineday.com), 绑定到 github 域名(如 wangshibiaoflytiger.github.io)
+
+#### 5.1.2 修改配置文件
+
+修改 base 配置
+
+```
+base: "/"
+```

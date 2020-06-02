@@ -82,6 +82,6 @@ module.exports = {
     ["vuepress-plugin-code-copy", true]
   ],
 
-  //配置base, 将服务发布到github pages
-  base: "/blog/"
+  //服务访问路径. 若将服务发布到github pages, 且使用github域名访问, 则必须要配置base, 如base: "/blog/"
+  base: "/"
 };
