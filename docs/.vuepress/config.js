@@ -18,6 +18,15 @@ module.exports = {
     sidebar: {
       "/笔记/技术/": [
         {
+          title: "前端", // 必要的
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 2, // 可选的, 默认值是 1
+          children: [
+            "/笔记/技术/前端/",
+            "/笔记/技术/前端/性能优化/cdn/部署免费cdn"
+          ]
+        },
+        {
           title: "后台", // 必要的
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 2, // 可选的, 默认值是 1
