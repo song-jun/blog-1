@@ -203,3 +203,47 @@ head: [
     ]
   ]
 ```
+
+## 9. 支持评论
+
+::: tip
+市面上也有其他的选型, 如 gitalk,vssue 等, 但需要用户登录才能发表评论, 且 github 经常无法链接,导致体验非常差
+
+最终选用 valine+leancloud, 支持匿名评论, 唯一的遗憾是评论无法和文章一一对应
+:::
+
+> [参考文档](https://github.com/dongyuanxin/vuepress-plugin-comment)
+
+### 9.1 注册 leancloud
+
+注册[leancloud](https://leancloud.cn)账号,创建应用
+
+复制 AppID 和 AppKey
+
+![20200603172452.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200603172452.png)
+
+::: tip
+可通过 leancloud 后台管理评论内容
+:::
+
+### 9.2 添加评论插件
+
+yarn add vuepress-plugin-comment -D
+
+vi ./config.js
+
+```
+// 评论插件
+[
+  "vuepress-plugin-comment",
+  {
+    choosen: "valine",
+    // options选项中的所有参数，会传给Valine的配置
+    options: {
+      el: "#valine-vuepress-comment",
+      appId: "cxPSbJA9SE1uXWt0ywBRl0Cr-gzGzoHsz",
+      appKey: "jKPdKyf3rUlfcVV03gPyBSd1"
+    }
+  }
+]
+```

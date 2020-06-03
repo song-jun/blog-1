@@ -89,7 +89,21 @@ module.exports = {
     ],
 
     // 代码块增加"拷贝"按钮
-    ["vuepress-plugin-code-copy", true]
+    ["vuepress-plugin-code-copy", true],
+
+    // 评论插件
+    [
+      "vuepress-plugin-comment",
+      {
+        choosen: "valine",
+        // options选项中的所有参数，会传给Valine的配置
+        options: {
+          el: "#valine-vuepress-comment",
+          appId: "cxPSbJA9SE1uXWt0ywBRl0Cr-gzGzoHsz",
+          appKey: "jKPdKyf3rUlfcVV03gPyBSd1"
+        }
+      }
+    ]
   ],
 
   //服务访问路径. 若将服务发布到github pages, 且使用github域名访问, 则必须要配置base, 如base: "/blog/"
