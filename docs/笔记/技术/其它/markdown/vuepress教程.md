@@ -79,3 +79,48 @@ h1 标题不会生成在侧边栏
 ```
 base: "/"
 ```
+
+### 6. 添加百度统计
+
+#### 6.1 获取百度统计代码
+
+登录[百度统计后台](https://tongji.baidu.com)
+
+创建站点
+
+复制统计代码
+
+```
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?44212d6ce872df50b804d94b24889284";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+```
+
+编辑 config.js
+
+#### 6.2 配置百度统计代码
+
+vi ./config.js
+
+```
+head: [
+    // 添加百度统计
+    [
+      "script",
+      {},
+      `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?44212d6ce872df50b804d94b24889284";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+        `
+    ]
+  ]
+```
