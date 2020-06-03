@@ -117,6 +117,21 @@ module.exports = {
       {
         src: "https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718"
       }
+    ],
+
+    //添加谷歌统计
+    [
+      "script",
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=UA-168383599-1",
+        async: true
+      },
+      `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-168383599-1');
+      `
     ]
   ]
 };

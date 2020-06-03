@@ -152,3 +152,54 @@ head: [
     ]
   ]
 ```
+
+## 8. 添加 谷歌统计
+
+::: tip 注意
+实际操作后, 发现谷歌统计中没有数据, 暂时未确定原因
+:::
+
+### 8.1 获取 谷歌 统计代码
+
+登录[谷歌统计后台](https://analytics.google.com)
+
+创建站点
+
+复制统计代码
+
+![20200603112847.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200603112847.png)
+
+```
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168383599-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168383599-1');
+</script>
+```
+
+### 8.2 配置 谷歌 统计代码
+
+vi ./config.js
+
+```
+head: [
+    //添加谷歌统计
+    [
+      "script",
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=UA-168383599-1",
+        async: true
+      },
+      `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-168383599-1');
+      `
+    ]
+  ]
+```
