@@ -109,6 +109,14 @@ module.exports = {
         s.parentNode.insertBefore(hm, s);
       })();
         `
+    ],
+
+    // 添加cnzz统计
+    [
+      "script",
+      {
+        src: "https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718"
+      }
     ]
   ]
 };

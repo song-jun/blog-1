@@ -80,9 +80,9 @@ h1 标题不会生成在侧边栏
 base: "/"
 ```
 
-### 6. 添加百度统计
+## 6. 添加百度统计
 
-#### 6.1 获取百度统计代码
+### 6.1 获取百度统计代码
 
 登录[百度统计后台](https://tongji.baidu.com)
 
@@ -100,9 +100,7 @@ var _hmt = _hmt || [];
 })();
 ```
 
-编辑 config.js
-
-#### 6.2 配置百度统计代码
+### 6.2 配置百度统计代码
 
 vi ./config.js
 
@@ -121,6 +119,36 @@ head: [
         s.parentNode.insertBefore(hm, s);
       })();
         `
+    ]
+  ]
+```
+
+## 7. 添加 cnzz/友盟统计
+
+### 7.1 获取 cnzz 统计代码
+
+登录[友盟统计后台](https://www.umeng.com/)
+
+创建站点
+
+复制统计代码
+
+```
+https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718
+```
+
+### 7.2 配置 cnzz 统计代码
+
+vi ./config.js
+
+```
+head: [
+    // 添加cnzz统计
+    [
+      "script",
+      {
+        src: "https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718"
+      }
     ]
   ]
 ```
