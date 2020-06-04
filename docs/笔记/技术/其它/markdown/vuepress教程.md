@@ -228,8 +228,13 @@ head: [
     options: {
       el: "#valine-vuepress-comment",
       appId: "cxPSbJA9SE1uXWt0ywBRl0Cr-gzGzoHsz",
-      appKey: "jKPdKyf3rUlfcVV03gPyBSd1"
+      appKey: "jKPdKyf3rUlfcVV03gPyBSd1",
+      path: '<%- frontmatter.to.path %>'
     }
   }
 ]
 ```
+
+::: tip 注意
+若不配置 path，则切换页面时评论内容不会刷新
+:::
