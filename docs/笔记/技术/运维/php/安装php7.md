@@ -1,6 +1,6 @@
 ---
 title: 安装php7
-permalink: /ops/php/install-php7.html
+permalink: /install-php7.html
 ---
 
 [[toc]]
@@ -13,7 +13,7 @@ permalink: /ops/php/install-php7.html
 
 ### 2.1 安装
 
-apt-get update
+apt-get update  
 apt-get install php php-pear nginx vim curl
 
 ## 2.2 配置
@@ -43,7 +43,7 @@ vim /etc/nginx/sites-enabled/default
 
 ### 2.3 启动服务
 
-service php7.0-fpm start
+service php7.0-fpm start  
 service nginx start
 
 ## 3. 验证

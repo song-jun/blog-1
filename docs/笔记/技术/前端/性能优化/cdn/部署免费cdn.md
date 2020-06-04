@@ -1,22 +1,27 @@
 ---
 title: 部署免费cdn
-permalink: /front/performance/cdn/freecdn.html
+permalink: /free-cdn.html
 ---
 
 ## 1. 选择方案
-使用github和jsdelivr这对组合, 搭建免费的cdn, 不仅节省存储费用, 还节省带宽费用
+
+使用 github 和 jsdelivr 这对组合, 搭建免费的 cdn, 不仅节省存储费用, 还节省带宽费用
 
 ::: tip
-使用github的存储, 使用jsdelivr的cdn带宽
+使用 github 的存储, 使用 jsdelivr 的 cdn 带宽
 :::
 
 ## 2. 部署步骤
-### 2.1 github上创建仓库
-注意是public类型的
 
-### 2.2 使用jsdelivr的cdn地址访问
-将资源的github访问url转换为jsdelivr的cdn url
+### 2.1 github 上创建仓库
 
 ::: tip
-url转换规则详见https://www.cnblogs.com/zhsh666/p/11432956.html
+必须为 public 类型
+:::
+
+### 2.2 使用 jsdelivr 的 cdn 地址访问
+
+将资源的 github 访问 url 转换为 jsdelivr 的 cdn url
+::: tip
+url 转换规则详见https://www.cnblogs.com/zhsh666/p/11432956.html
 :::

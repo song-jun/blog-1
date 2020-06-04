@@ -1,6 +1,6 @@
 ---
 title: tomcat配置jmx
-permalink: /ops/tomcat/tomcat-config.html
+permalink: /tomcat-jmx.html
 ---
 
 [[toc]]
@@ -8,7 +8,6 @@ permalink: /ops/tomcat/tomcat-config.html
 ## 1. 配置 tomcat
 
 vi /usr/local/beauty-front/bin/setenv.sh
-
 ::: tip 注意
 172.18.100.110 替换成实际 IP
 :::

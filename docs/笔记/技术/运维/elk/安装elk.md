@@ -1,6 +1,6 @@
 ---
 title: 安装elk
-permalink: /ops/elk/install-elk.html
+permalink: /install-elk.html
 ---
 
 [[toc]]
@@ -11,14 +11,10 @@ permalink: /ops/elk/install-elk.html
 
 ## 2. 准备资源
 
-jdk-8u144-linux-x64.tar.gz
-
-elasticsearch-6.1.1.tar.gz
-
-logstash-6.1.1.tar.gz
-
-kibana-6.1.1-linux-x86_64.tar.gz
-
+jdk-8u144-linux-x64.tar.gz  
+elasticsearch-6.1.1.tar.gz  
+logstash-6.1.1.tar.gz  
+kibana-6.1.1-linux-x86_64.tar.gz  
 mysql-connector-java-5.1.41.jar
 
 ## 3. 安装
@@ -29,27 +25,19 @@ mysql-connector-java-5.1.41.jar
 所有安装操作都在 docker 内执行
 :::
 
-docker run -itd --privileged --name elk-ubuntu -p 9100:9100 -p 9200:9200 -p 9300:9300 -p 5601:5601 ubuntu:16.04
+- 创建容器环境
+  docker run -itd --privileged --name elk-ubuntu -p 9100:9100 -p 9200:9200 -p 9300:9300 -p 5601:5601 ubuntu:16.04  
+  docker cp /data/programInstaller/elasticsearch-6.1.1.tar.gz 28:/root/  
+  docker cp /data/programInstaller/jdk-8u144-linux-x64.tar.gz 28:/root/  
+  docker cp /data/programInstaller/kibana-6.1.1-linux-x86_64.tar.gz 28:/root/  
+  docker cp /data/programInstaller/logstash-6.1.1.tar.gz 28:/root/  
+  docker cp /data/programInstaller/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar 28:/root/  
+  docker exec -it 28 bash  
+  apt-get update  
+  apt-get install vim curl net-tools -y
 
-docker cp /data/programInstaller/elasticsearch-6.1.1.tar.gz 28:/root/
-
-docker cp /data/programInstaller/jdk-8u144-linux-x64.tar.gz 28:/root/
-
-docker cp /data/programInstaller/kibana-6.1.1-linux-x86_64.tar.gz 28:/root/
-
-docker cp /data/programInstaller/logstash-6.1.1.tar.gz 28:/root/
-
-docker cp /data/programInstaller/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar 28:/root/
-
-docker exec -it 28 bash
-
-apt-get update
-
-apt-get install vim curl net-tools -y
-
-#优化配置
-
-vi /etc/security/limits.conf
+- 优化配置
+  vi /etc/security/limits.conf
 
 ```
 - soft nofile 65536
@@ -73,10 +61,8 @@ vm.max_map_count=262144
 
 sysctl -p
 
-cd /root
-
-tar -zxvf /root/jdk-8u144-linux-x64.tar.gz -C /usr/local/
-
+cd /root  
+tar -zxvf /root/jdk-8u144-linux-x64.tar.gz -C /usr/local/  
 vi /etc/profile.d/jdk.sh
 
 ```
@@ -88,32 +74,21 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 source /etc/profile
 
-tar -zxvf /root/elasticsearch-6.1.1.tar.gz -C /usr/local/
-
-tar -zxvf /root/kibana-6.1.1-linux-x86_64.tar.gz -C /usr/local/
-
-tar -zxvf /root/logstash-6.1.1.tar.gz -C /usr/local/
-
-cp /root/mysql-connector-java-5.1.41.jar /usr/local/logstash-6.1.1/
-
-groupadd elkusergroup
-
-useradd elkuser -g elkusergroup -m
-
-chown -R elkuser:elkusergroup /usr/local/elasticsearch-6.1.1/
-
-chown -R elkuser:elkusergroup /usr/local/kibana-6.1.1-linux-x86_64/
-
-chown -R elkuser:elkusergroup /usr/local/logstash-6.1.1/
-
+tar -zxvf /root/elasticsearch-6.1.1.tar.gz -C /usr/local/  
+tar -zxvf /root/kibana-6.1.1-linux-x86_64.tar.gz -C /usr/local/  
+tar -zxvf /root/logstash-6.1.1.tar.gz -C /usr/local/  
+cp /root/mysql-connector-java-5.1.41.jar /usr/local/logstash-6.1.1/  
+groupadd elkusergroup  
+useradd elkuser -g elkusergroup -m  
+chown -R elkuser:elkusergroup /usr/local/elasticsearch-6.1.1/  
+chown -R elkuser:elkusergroup /usr/local/kibana-6.1.1-linux-x86_64/  
+chown -R elkuser:elkusergroup /usr/local/logstash-6.1.1/  
 su elkuser
 
 ### 3.2 安装 elasticsearch
 
-/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install x-pack
-
-/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.1.1/elasticsearch-analysis-ik-6.1.1.zip
-
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install x-pack  
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.1.1/elasticsearch-analysis-ik-6.1.1.zip  
 vi /usr/local/elasticsearch-6.1.1/config/elasticsearch.yml
 
 ```
@@ -132,18 +107,15 @@ vi /usr/local/elasticsearch-6.1.1/config/jvm.options
 
 /usr/local/elasticsearch-6.1.1/bin/elasticsearch --verbose -d
 
-#设置 elastic，kibana,logstash_system 的密码[约定都设置为 123456].用户名分别为 elastic,kibana,logstash_system #如果没有安装 x-pack，则不需要如下设置密码操作
-
+**设置 elastic，kibana,logstash_system 的密码[约定都设置为 123456].用户名分别为 elastic,kibana,logstash_system #如果没有安装 x-pack，则不需要如下设置密码操作**  
 /usr/local/elasticsearch-6.1.1/bin/x-pack/setup-passwords interactive
 
 ### 3.3 安装 logstash
 
 /usr/local/logstash-6.1.1/bin/logstash-plugin install x-pack
-
 ::: tip 注意
 需要确保源数据库的表中含有 update_time 字段
 :::
-
 vi /usr/local/logstash-6.1.1/config/logstash.conf
 
 ```
@@ -190,8 +162,7 @@ vi /usr/local/logstash-6.1.1/jdbc.sql
 SELECT \* FROM sys_gallery where update_time > :sql_last_value
 ```
 
-mkdir /usr/local/logstash-6.1.1/template
-
+mkdir /usr/local/logstash-6.1.1/template  
 vi /usr/local/logstash-6.1.1/template/logstash.json
 
 ```
@@ -272,8 +243,7 @@ vi /usr/local/logstash-6.1.1/template/logstash.json
 
 ### 3.4 安装 kibana
 
-/usr/local/kibana-6.1.1-linux-x86_64/bin/kibana-plugin install x-pack
-
+/usr/local/kibana-6.1.1-linux-x86_64/bin/kibana-plugin install x-pack  
 vi /usr/local/kibana-6.1.1-linux-x86_64/config/kibana.yml
 
 ```
@@ -300,8 +270,9 @@ nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-l
 ### 4.1 验证 elastic
 
 浏览器访问:http://localhost:9200/?pretty
-
+::: tip
 账号密码(安装步骤中已设置)：elastic/123456
+:::
 
 ### 4.2 验证 kibana
 
@@ -315,8 +286,7 @@ nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana >/usr/local/kibana-6.1.1-l
 
 #### 5.1.1 将自定义词典文件放到 web 服务
 
-例如访问路径http://172.16.38.73:8081/meitu_ik_custom.dic
-
+例如访问路径http://172.16.38.73:8081/meitu_ik_custom.dic  
 文件格式如下(要求 utf8 编码)
 
 ```

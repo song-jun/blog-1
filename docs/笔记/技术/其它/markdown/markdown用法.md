@@ -1,6 +1,6 @@
 ---
 title: markdown用法
-permalink: /markdown/usage.html
+permalink: /markdown-usage.html
 ---
 
 [[toc]]
@@ -52,3 +52,8 @@ graph TD;
 ```
 
 [链接到百度](https://www.baidu.com)
+
+## 正文换行的 2 种写法
+
+1. 不同行之间隔一个回车
+2. 上一行末尾补充 2 个空格或 1 个 Tab

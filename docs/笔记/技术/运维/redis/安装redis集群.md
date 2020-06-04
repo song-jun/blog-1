@@ -1,6 +1,6 @@
 ---
 title: 安装redis集群
-permalink: /ops/redis/install-redis-cluster.html
+permalink: /install-redis-cluster.html
 ---
 
 [[toc]]
@@ -13,36 +13,25 @@ permalink: /ops/redis/install-redis-cluster.html
 
 ### 2.1 编译安装单机版 redis
 
-tar -zxvf /root/redis-5.0.5.tar.gz -c /root
-
-cd /root/redis-5.0.5
-
-make -j2 PREFIX=/usr/local/redis install
-
+tar -zxvf /root/redis-5.0.5.tar.gz -c /root  
+cd /root/redis-5.0.5  
+make -j2 PREFIX=/usr/local/redis install  
 cp /root/redis-5.0.5/redis.conf /usr/local/redis/
 
 ### 2.2 准备集群目录
 
-mkdir -p /usr/local/redis-cluster/bin
-
-mkdir -p /usr/local/redis-cluster/9001
-
-mkdir -p /usr/local/redis-cluster/9002
-
-mkdir -p /usr/local/redis-cluster/9003
-
-mkdir -p /usr/local/redis-cluster/9004
-
-mkdir -p /usr/local/redis-cluster/9005
-
+mkdir -p /usr/local/redis-cluster/bin  
+mkdir -p /usr/local/redis-cluster/9001  
+mkdir -p /usr/local/redis-cluster/9002  
+mkdir -p /usr/local/redis-cluster/9003  
+mkdir -p /usr/local/redis-cluster/9004  
+mkdir -p /usr/local/redis-cluster/9005  
 mkdir -p /usr/local/redis-cluster/9006
 
 ### 2.3 准备集群可执行文件
 
-cp /usr/local/redis/bin/\* /usr/local/redis-cluster/bin/
-
-cp /root/redis-5.0.5/src/mkreleasehdr.sh /usr/local/redis-cluster/bin/
-
+cp /usr/local/redis/bin/\* /usr/local/redis-cluster/bin/  
+cp /root/redis-5.0.5/src/mkreleasehdr.sh /usr/local/redis-cluster/bin/  
 cp /root/redis-5.0.5/src/redis-trib.rb /usr/local/redis-cluster/bin/
 
 ### 2.4 复制一个新 redis 实例
@@ -70,30 +59,21 @@ cluster-node-timeout 15000
 appendonly yes
 ```
 
-**创建数据目录**
-
+**创建数据目录**  
 mkdir /usr/local/redis-cluster/9001/data
 
 ### 2.5 基于 9001 节点复制出其他的节点
 
-cp -r /usr/local/redis-cluster/9001/\_ /usr/local/redis-cluster/9002/
-
-cp -r /usr/local/redis-cluster/9001/\_ /usr/local/redis-cluster/9003/
-
-cp -r /usr/local/redis-cluster/9001/\_ /usr/local/redis-cluster/9004/
-
-cp -r /usr/local/redis-cluster/9001/\_ /usr/local/redis-cluster/9005/
-
+cp -r /usr/local/redis-cluster/9001/\* /usr/local/redis-cluster/9002/  
+cp -r /usr/local/redis-cluster/9001/\* /usr/local/redis-cluster/9003/  
+cp -r /usr/local/redis-cluster/9001/\* /usr/local/redis-cluster/9004/  
+cp -r /usr/local/redis-cluster/9001/\* /usr/local/redis-cluster/9005/  
 cp -r /usr/local/redis-cluster/9001/\* /usr/local/redis-cluster/9006/
 
-sed -i 's/9001/9002/g' /usr/local/redis-cluster/9002/redis.conf
-
-sed -i 's/9001/9003/g' /usr/local/redis-cluster/9003/redis.conf
-
-sed -i 's/9001/9004/g' /usr/local/redis-cluster/9004/redis.conf
-
-sed -i 's/9001/9005/g' /usr/local/redis-cluster/9005/redis.conf
-
+sed -i 's/9001/9002/g' /usr/local/redis-cluster/9002/redis.conf  
+sed -i 's/9001/9003/g' /usr/local/redis-cluster/9003/redis.conf  
+sed -i 's/9001/9004/g' /usr/local/redis-cluster/9004/redis.conf  
+sed -i 's/9001/9005/g' /usr/local/redis-cluster/9005/redis.conf  
 sed -i 's/9001/9006/g' /usr/local/redis-cluster/9006/redis.conf
 
 ### 2.6 启动 6 个节点
@@ -110,21 +90,18 @@ vi /usr/local/redis-cluster/bin/start-redis-cluster.sh
 /usr/local/redis-cluster/bin/redis-server /usr/local/redis-cluster/9006/redis.conf
 ```
 
-chmod +x /usr/local/redis-cluster/bin/start-redis-cluster.sh
-
+chmod +x /usr/local/redis-cluster/bin/start-redis-cluster.sh  
 /usr/local/redis-cluster/bin/start-redis-cluster.sh
 
 ### 2.7 安装高版本 ruby
 
-yum install -y centos-release-scl-rh
-
-yum install -y rh-ruby24
+yum install -y centos-release-scl-rh  
+yum install -y rh-ruby24  
 scl enable rh-ruby24 bash
 
 ### 2.8 安装集群所需软件
 
-gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-
+gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/  
 sudo gem install redis (依赖版本 ruby>=2.3.0)
 
 ### 2.9 启动集群
@@ -137,12 +114,15 @@ sudo gem install redis (依赖版本 ruby>=2.3.0)
 
 /usr/local/redis-cluster/bin/redis-cli -h 172.18.100.177 -p 9001 -c
 
+```
 set key1 val1
-
 exit
+```
 
 ### 3.2 另一个节点上读
 
 /usr/local/redis-cluster/bin/redis-cli -h 172.18.100.177 -p 9002 -c
 
+```
 get key1
+```

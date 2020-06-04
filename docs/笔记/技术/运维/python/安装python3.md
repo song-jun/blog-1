@@ -1,6 +1,6 @@
 ---
 title: 安装python3
-permalink: /ops/python/install-python3.html
+permalink: /install-python3.html
 ---
 
 [[toc]]
@@ -17,14 +17,10 @@ python 源码：/root/Python-3.6.4.tar.gz
 
 yum install gcc zlib-devel openssl-devel
 
-tar -zxvf /root/Python-3.6.4.tar.gz -C /root
-
-cd /root/Python-3.6.4
-
-./configure --prefix=/usr/local/python3 --enable-shared
-
-make
-
+tar -zxvf /root/Python-3.6.4.tar.gz -C /root  
+cd /root/Python-3.6.4  
+./configure --prefix=/usr/local/python3 --enable-shared  
+make  
 make install
 
 vi /root/.bashrc
@@ -36,8 +32,7 @@ export PATH=$PYTHON3_HOME/bin:$PATH
 
 source /root/.bashrc
 
-echo /usr/local/python3/lib/ > /etc/ld.so.conf.d/python3.conf
-
+echo /usr/local/python3/lib/ > /etc/ld.so.conf.d/python3.conf  
 ldconfig
 
 python3 --version

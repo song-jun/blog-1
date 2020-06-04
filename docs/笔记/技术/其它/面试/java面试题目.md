@@ -1,6 +1,6 @@
 ---
 title: java面试
-permalink: /interview/java.html
+permalink: /java-interview.html
 ---
 
 [[toc]]

@@ -1,6 +1,6 @@
 ---
 title: vuepress教程
-permalink: /vuepress/usage.html
+permalink: /vuepress-usage.html
 ---
 
 [[toc]]
@@ -49,15 +49,11 @@ includeLevel 默认值为[2, 3], 所以不显示一级标题
 ## 4. 侧边栏
 
 侧边栏是按照"本地文档的实际目录结构"进行定义,不关心文档的实际 url 访问路径
-
 ::: tip 注意
 h1 标题不会生成在侧边栏
 :::
-
-可以将文档随意分组, 见官方文档的"侧边栏分组"
-
+可以将文档随意分组, 见官方文档的"侧边栏分组"<br>
 若想对侧边栏进行分类, 即不同类别的文档显示不同的侧边栏, 见官方文档的"多个侧边栏"
-
 ::: tip 注意
 若想对侧边栏进行分类, 必须以目录结构进行分类, 即相同类别的文档的根目录是相同的
 :::
@@ -84,11 +80,9 @@ base: "/"
 
 ### 6.1 获取百度统计代码
 
-登录[百度统计后台](https://tongji.baidu.com)
-
-创建站点
-
-复制统计代码
+- 登录[百度统计后台](https://tongji.baidu.com)
+- 创建站点
+- 复制统计代码
 
 ```
 var _hmt = _hmt || [];
@@ -127,11 +121,9 @@ head: [
 
 ### 7.1 获取 cnzz 统计代码
 
-登录[友盟统计后台](https://www.umeng.com/)
-
-创建站点
-
-复制统计代码
+- 登录[友盟统计后台](https://www.umeng.com/)
+- 创建站点
+- 复制统计代码
 
 ```
 https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718
@@ -161,11 +153,9 @@ head: [
 
 ### 8.1 获取 谷歌 统计代码
 
-登录[谷歌统计后台](https://analytics.google.com)
-
-创建站点
-
-复制统计代码
+- 登录[谷歌统计后台](https://analytics.google.com)
+- 创建站点
+- 复制统计代码
 
 ![20200603112847.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200603112847.png)
 
@@ -207,20 +197,17 @@ head: [
 ## 9. 支持评论
 
 ::: tip
-市面上也有其他的选型, 如 gitalk,vssue 等, 但需要用户登录才能发表评论, 且 github 经常无法链接,导致体验非常差
-
-最终选用 valine+leancloud, 支持匿名评论, 唯一的遗憾是评论无法和文章一一对应
+市面上也有其他的选型, 如 gitalk,vssue 等, 但需要用户登录才能发表评论, 且 github 经常无法链接,导致体验非常差<br>
+最终选用 valine+leancloud, 支持匿名评论，缺点是数据没有存储在自己手里
 :::
 
 > [参考文档](https://github.com/dongyuanxin/vuepress-plugin-comment)
 
 ### 9.1 注册 leancloud
 
-注册[leancloud](https://leancloud.cn)账号,创建应用
-
-复制 AppID 和 AppKey
-
-![20200603172452.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200603172452.png)
+- 注册[leancloud](https://leancloud.cn)账号,创建应用
+- 复制 AppID 和 AppKey
+  ![20200603172452.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200603172452.png)
 
 ::: tip
 可通过 leancloud 后台管理评论内容
@@ -228,9 +215,8 @@ head: [
 
 ### 9.2 添加评论插件
 
-yarn add vuepress-plugin-comment -D
-
-vi ./config.js
+- yarn add vuepress-plugin-comment -D
+- vi ./config.js
 
 ```
 // 评论插件
