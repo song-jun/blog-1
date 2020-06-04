@@ -82,7 +82,7 @@ module.exports = {
           // 不要忘了安装 moment
           const moment = require("moment");
           moment.locale(lang);
-          return moment(timestamp).format("YYYY-MM-DD hh:mm:ss");
+          return moment(timestamp).format("YYYY-MM-DD HH:mm:ss");
         }
       }
       /*****************end 自定义"文章底部更新时间"的显示格式 ************/
