@@ -58,7 +58,43 @@ module.exports = {
     },
 
     // 文章底部显示更新时间
-    lastUpdated: "上次更新"
+    lastUpdated: "上次更新",
+
+    /***************start vdoing主题专属配置 */
+    author: {
+      // 文章默认的作者信息，可在.md文件front matter中单独配置此信息 String | {name: String, link: String}
+      name: "王世彪", // 必需
+      link: "https://github.com/wangshibiaoFlytiger" // 可选的
+    },
+    blogger: {
+      // 博主信息，显示在首页侧边栏
+      avatar:
+        "https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/shuaige.jpg",
+      name: "王世彪",
+      slogan: "做个有报复的宅男"
+    },
+    social: {
+      // 社交图标，显示于博主信息栏和页脚栏
+      // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
+      icons: [
+        {
+          iconClass: "icon-youjian",
+          title: "发邮件",
+          link: "mailto:645102170@qq.com"
+        },
+        {
+          iconClass: "icon-github",
+          title: "GitHub",
+          link: "https://github.com/wangshibiaoFlytiger"
+        }
+      ]
+    },
+    footer: {
+      // 页脚信息
+      createYear: 2019, // 博客创建年份
+      copyrightInfo: "王世彪 | MIT License" // 博客版权信息，支持a标签
+    }
+    /***************end vdoing主题专属配置 */
   },
 
   plugins: [
