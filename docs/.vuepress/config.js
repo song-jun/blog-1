@@ -14,12 +14,12 @@ module.exports = {
     nav: [
       {
         text: "前端",
-        link: "/free-cdn.html",
+        link: "/front/",
         items: [{ text: "cdn", link: "/free-cdn.html" }]
       },
       {
         text: "后台",
-        link: "/install-redis-cluster.html",
+        link: "/back/",
         items: [
           { text: "redis", link: "/install-redis-cluster.html" },
           { text: "php", link: "/install-php7.html" },
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         text: "其它",
-        link: "/markdown-usage.html",
+        link: "/other/",
         items: [
           { text: "markdown", link: "/markdown-usage.html" },
           { text: "vuepress", link: "/vuepress-usage.html" },
