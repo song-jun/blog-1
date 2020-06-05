@@ -36,6 +36,18 @@ module.exports = {
           { text: "vuepress", link: "/vuepress-usage.html" },
           { text: "面试", link: "/java-interview.html" }
         ]
+      },
+      {
+        text: "赞一个",
+        link: "/appreciate.html"
+      },
+      {
+        text: "申请友链",
+        link: "/friendlink.html"
+      },
+      {
+        text: "联系作者",
+        link: "/contact-author.html"
       }
     ],
 
