@@ -3,3 +3,6 @@ yarn.lock
 
 # 编译生成的静态站点
 docs/.vuepress/dist
+
+# vuepress-theme-vdoing主题插件编译生成的文件
+docs/@pages/

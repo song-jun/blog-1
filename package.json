@@ -6,7 +6,8 @@
   "devDependencies": {
     "moment": "^2.26.0",
     "vuepress": "^1.5.0",
-    "vuepress-plugin-comment": "^0.7.3"
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-theme-vdoing": "^1.1.6"
   },
   "dependencies": {
     "vuepress-plugin-code-copy": "^1.0.6"

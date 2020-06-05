@@ -1,4 +1,7 @@
 module.exports = {
+  // 使用主题vuepress-theme-vdoing-doc
+  theme: "vdoing",
+
   title: "王世彪的博客",
   description: "王世彪的博客, 干货满满",
 
@@ -9,64 +12,37 @@ module.exports = {
   themeConfig: {
     // 导航栏
     nav: [
-      { text: "前端", link: "/front/" },
-      { text: "后台", link: "/back/" },
-      { text: "运维", link: "/ops/" }
+      {
+        text: "前端",
+        link: "/free-cdn.html",
+        items: [{ text: "cdn", link: "/free-cdn.html" }]
+      },
+      {
+        text: "后台",
+        link: "/install-redis-cluster.html",
+        items: [
+          { text: "redis", link: "/install-redis-cluster.html" },
+          { text: "php", link: "/install-php7.html" },
+          { text: "python", link: "/install-python3.html" },
+          { text: "tomcat", link: "/tomcat-jmx.html" },
+          { text: "elk", link: "/install-elk.html" }
+        ]
+      },
+      {
+        text: "其它",
+        link: "/markdown-usage.html",
+        items: [
+          { text: "markdown", link: "/markdown-usage.html" },
+          { text: "vuepress", link: "/vuepress-usage.html" },
+          { text: "面试", link: "/java-interview.html" }
+        ]
+      }
     ],
 
-    // 侧边栏,注意, h1标题不会生成在侧边栏
+    // vdoing主题的特有配置, 实现功能:自动生成结构化侧边栏, 注意最多支持3级目录,且文件名前需要指定序号
     sidebar: {
-      "/笔记/技术/": [
-        {
-          title: "前端", // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "/笔记/技术/前端/",
-            "/笔记/技术/前端/性能优化/cdn/部署免费cdn"
-          ]
-        },
-        {
-          title: "后台", // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: ["/笔记/技术/后台/"]
-        },
-        {
-          title: "运维", // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "/笔记/技术/运维/",
-            "/笔记/技术/运维/php/安装php7",
-            "/笔记/技术/运维/python/安装python3",
-            "/笔记/技术/运维/redis/安装redis集群",
-            "/笔记/技术/运维/tomcat/tomcat的jmx配置",
-            "/笔记/技术/运维/tomcat/tomcat的jmx配置",
-            "/笔记/技术/运维/elk/安装elk"
-          ]
-        },
-        {
-          title: "其它", // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: [
-            "/笔记/技术/其它/",
-            "/笔记/技术/其它/面试/java面试题目",
-            "/笔记/技术/其它/markdown/markdown用法",
-            "/笔记/技术/其它/markdown/vuepress教程",
-            "/笔记/技术/其它/markdown/部署免费图床"
-          ]
-        }
-      ],
-      "/笔记/工作/": [
-        {
-          title: "欧朋", // 必要的
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 2, // 可选的, 默认值是 1
-          children: ["/笔记/工作/欧朋/美图2"]
-        }
-      ]
+      mode: "structuring",
+      collapsable: true
     },
 
     // 文章底部显示更新时间
