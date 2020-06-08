@@ -128,7 +128,10 @@ module.exports = {
           path: "<%- frontmatter.to.path %>"
         }
       }
-    ]
+    ],
+
+    // 全文搜索
+    ["fulltext-search"]
   ],
 
   //服务访问路径. 若将服务发布到github pages, 且使用github域名访问, 则必须要配置base, 如base: "/blog/"
