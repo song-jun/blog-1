@@ -2,7 +2,7 @@
 pageComponent: # 使用页面组件
   name: Catalogue # 组件名：Catalogue => 目录页组件
   data: # 组件所需数据
-    key: 前端 # 设置为指定文件夹的名称 (有序号的要带序号)
+    key: 运维 # 设置为指定文件夹的名称 (有序号的要带序号)
     imgUrl: https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/qianduan.png # 目录页内的图片
     description: ES6、Vuejs、Reactjs、RN、App等前端技术
 
