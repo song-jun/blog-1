@@ -97,7 +97,9 @@ module.exports = {
     footer: {
       // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: "王世彪 | MIT License" // 博客版权信息，支持a标签
+      // 博客版权信息，支持a标签
+      copyrightInfo:
+        "王世彪 | MIT License <br/> <a href='http://www.beian.miit.gov.cn'>冀ICP备19016776号-1</a>"
     }
     /***************end vdoing主题专属配置 */
   },
