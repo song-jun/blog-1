@@ -29,6 +29,11 @@ module.exports = {
         ]
       },
       {
+        text: "运维",
+        link: "/ops/",
+        items: [{ text: "nginx配置https", link: "/nginx-https.html" }]
+      },
+      {
         text: "其它",
         link: "/other/",
         items: [
