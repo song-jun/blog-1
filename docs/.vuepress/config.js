@@ -2,8 +2,9 @@ module.exports = {
   // 使用主题vuepress-theme-vdoing-doc
   theme: "vdoing",
 
-  title: "王世彪的博客",
-  description: "王世彪的博客, 干货满满",
+  title: "全栈直通车",
+  description:
+    "想成为全栈类型的软件开发工程师吗?想少走弯路吗?那么就来这里,满满的干货",
 
   markdown: {
     toc: { includeLevel: [1, 2, 3, 4] }
@@ -76,7 +77,7 @@ module.exports = {
       avatar:
         "https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/shuaige.jpg",
       name: "王世彪",
-      slogan: "做个有报复的宅男"
+      slogan: "努力做个影响他人滴人"
     },
     social: {
       // 社交图标，显示于博主信息栏和页脚栏
