@@ -2,7 +2,7 @@ module.exports = {
   // 使用主题vuepress-theme-vdoing-doc
   theme: "vdoing",
 
-  title: "全栈直通车",
+  title: "全栈直通车-王世彪的博客",
   description:
     "全栈直通车-王世彪的博客,分享成功经验，助大家用最短的时间成为全栈软件开发工程师，java,golang,python,php,前端,后台,vue,react,app，linux,运维,docker等应有尽有",
 
