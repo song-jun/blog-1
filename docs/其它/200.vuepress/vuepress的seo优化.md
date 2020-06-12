@@ -108,7 +108,7 @@ heading 标签即 h1 到 h6 标签,这６个标签中的权重由大到小
 
 > 参考[官方文档](https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title8)
 
-有多种推送方式，分为手动提交和自动提交
+有多种推送方式，分为手动提交和自动提交, 各有优缺点，建议结合使用
 
 若为自动提交, 则步骤如下:
 
