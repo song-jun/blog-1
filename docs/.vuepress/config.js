@@ -145,6 +145,20 @@ module.exports = {
         serviceWorker: true,
         updatePopup: true
       }
+    ],
+
+    // sitemap生成插件
+    [
+      "sitemap",
+      {
+        hostname: "https://www.sofineday.com",
+        // 排除无实际内容的页面
+        exclude: ["/404.html"],
+        // 格式化时间, 默认的时间格式不友好
+        dateFormatter: time => {
+          return time;
+        }
+      }
     ]
   ],
 
