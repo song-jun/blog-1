@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 全栈知识库
-tagline: 分享经验、成就你我他, 从入门到大神
+heroText: 全栈直通车-王世彪的博客
+tagline: 何为直通车? 这里只分享成功的经验, 这里没有高谈阔论，只想让您花费最短的时间到达终点
 features:
   - title: 前端
     details: ES6、Vuejs、Reactjs、RN、App等前端技术
