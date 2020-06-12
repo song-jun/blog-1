@@ -10,7 +10,7 @@ yarn docs:build
 cd docs/.vuepress/dist
 
 # 如果是发布到自定义域名, 该操作等同于:前往GitHub Pages页面设置Custom domain
-echo 'blog.sofineday.com' > CNAME
+# echo 'www.sofineday.com' > CNAME
 
 git init
 git add -A
