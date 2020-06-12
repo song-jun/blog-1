@@ -202,7 +202,10 @@ module.exports = {
           }
         ]
       }
-    ]
+    ],
+
+    // ＂百度搜索资源平台/百度站长＂的资源自动推送插件
+    ["vuepress-plugin-baidu-autopush"]
   ],
 
   //服务访问路径. 若将服务发布到github pages, 且使用github域名访问, 则必须要配置base, 如base: "/blog/"
@@ -289,8 +292,6 @@ module.exports = {
     /************ end pwa配置项 */
 
     // 百度搜索资源平台的验证, 不能删除
-    ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }],
-    // 添加百度搜索资源平台的自动推送代码
-    ["script", { src: "/assets/js/baidu_site_autopush.js" }]
+    ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }]
   ]
 };
