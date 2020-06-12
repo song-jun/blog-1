@@ -1,0 +1,145 @@
+---
+title: vuepress的seo优化
+permalink: /vuepress-seo.html
+date: 2020-06-12 09:40:32
+categories:
+  - vuepress
+tags:
+  - seo
+  - 搜索引擎优化
+  - vuepress
+---
+
+## URL 定义
+
+::: tip
+URL 中的关键词对网站在搜索引擎中的排名有一定的影响
+:::
+
+**url = 域名 +　 path**
+
+- 优化域名  
+  包含关键词
+- 优化 path  
+  包含关键词，关键词数量不要太多, 建议一个关键词最好  
+  关键词由多个单词组成，则使用分隔符-  
+  如果有名词的关键词出现，最好使用其复数形式，这样会覆盖到更多的用户
+
+## 页面 title
+
+- 包含该页面关键字
+- 限制关键词的数量
+  一个网页，不管多大多小，最多优化 5 个主关键词, 过多会影响优化效果  
+  但是想在该页面推广多个关键词咋办，办法有: 拆分该页面，分散关键词
+- 适当嵌入并重复关键词
+- 关键词的顺序  
+  关键词的重要性也与位置有关，即出现在 Title 最左边的关键词最重要, 第２个次之，以此类推
+
+## 页面正文
+
+::: tip
+非常注重原创, 否则会严重影响搜索引擎收录和排名
+:::
+
+- 标题要突出准确  
+  不能欺骗搜索引擎和用户
+- keywords 和 description
+- 图片 Alt 属性
+- 关键词加链接  
+  正文中的关键词可以增加链接，链接到网站的首页或相关栏目  
+  如果想要反复重点地使用同一个关键词，也要注意关键词密度，不要超过 7％
+- 关键词的出现位置  
+  搜索引擎在抓取文章的时候，对文章前 200 ～ 300 个文字特别注意，因此，重要的关键词应该出现在文章的前 200 ～ 300 个文字中。搜索引擎对重复度非常高的关键词会非常注意，因此在一篇文章中，同一个关键词不要出现太多次，可以使用同义词替代，这样既不会影响文章的可读性，也有利于搜索引擎抓取。
+
+## heading 标签中出现关键词
+
+heading 标签即 h1 到 h6 标签,这６个标签中的权重由大到小
+
+- h1 标签  
+  h1 标签在同一个页面中最好只出现 1 次, 使用次数过多，适得其反．
+
+- h2 标签  
+  h2 标签可以出现多次，但要按需使用，不要过度泛滥使用.
+
+## 网站内部链接
+
+非常重要，在 seo 中有重要的位置　　
+需要保证＂首页＂，＂栏目页＂，＂内容页＂互通
+
+建设內链的方法：
+
+1. 导航
+2. 面包屑
+3. 链接加 title 标签
+4. 相关性的链接
+   例如在网站的右侧会出现热门文章、最新文章等，这样做的目的是用来增加用户的黏性，提升网站的流量.
+5. 页脚
+   一般的网站都是在页脚放置版权信息等，如果只加版权信息，有点太浪费了。可以在页脚的地方放几个最核心的关键词，然后做超链接，可以链接到首页，也可以链接到其他页面。但关键词不能太多，最好不要超过 5 个，而且超链接最好也不要都链接同一个页面
+6. 支持标签或分类
+   增加用户粘性．
+7. 内容中加链接
+   尤其是对关键词加上相关主题的链接
+
+::: tip
+
+- 链接不能出现死链
+- 一个页面中不要出现多个指向一个页面的链接，而且用的是同一个锚文本
+
+:::
+
+## 导出链接
+
+即添加指向其它网站的链接，例如友情链接或正文中链接到其它网站等．
+导出链接对网站提升搜索排名有好处
+
+## sitemap
+
+## 百度搜索资源平台/原百度站长工具
+
+### 验证站点
+
+- 访问[百度搜索资源平台](https://ziyuan.baidu.com)
+- 添加站点
+- 网站验证  
+  百度提供了３种验证方式  
+  ![20200612123739.png](https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200612123739.png)
+
+### 推送代码
+
+> 参考[官方文档](https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title8)
+
+有多种推送方式，分为手动提交和自动提交
+
+若为自动提交, 则步骤如下:
+
+- 创建自动提交 js 代码  
+  vi .vuepress/public/assets/js/baidu_site_autopush.js
+
+```
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+
+```
+
+- 修改配置文件
+  vi .vuepress/config.js
+
+```
+head: [
+    ['script', { type: 'text/javascript', src: '/assets/js/baidu_site_autopush.js' }],
+],
+```
+
+## google 管理员工具
+
+## [参考文章](https://www.kuanxu.com/seo/39.html)

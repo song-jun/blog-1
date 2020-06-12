@@ -228,7 +228,12 @@ module.exports = {
         content: "/icons/msapplication-icon-144x144.png"
       }
     ],
-    ["meta", { name: "msapplication-TileColor", content: "#000000" }]
+    ["meta", { name: "msapplication-TileColor", content: "#000000" }],
     /************ end pwa配置项 */
+
+    // 百度搜索资源平台的验证, 不能删除
+    ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }],
+    // 添加百度搜索资源平台的自动推送代码
+    ["script", { src: "/assets/js/baidu_site_autopush.js" }]
   ]
 };
