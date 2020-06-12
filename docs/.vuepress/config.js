@@ -220,7 +220,7 @@ module.exports = {
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?44212d6ce872df50b804d94b24889284";
+        hm.src = "https://hm.baidu.com/hm.js?12e61954006bab17a5a7dc228772c27b";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();
