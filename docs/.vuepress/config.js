@@ -2,9 +2,9 @@ module.exports = {
   // 使用主题vuepress-theme-vdoing-doc
   theme: "vdoing",
 
-  title: "全栈直通车",
+  title: "全栈知识库",
   description:
-    "想成为全栈类型的软件开发工程师吗?想少走弯路吗?那么就来这里,满满的干货",
+    "助大家成为全栈软件开发工程师，小白变大神，java,golang,python,php,前端,后台,vue,react,app，linux,运维,docker等应有尽有",
 
   markdown: {
     toc: { includeLevel: [1, 2, 3, 4] }

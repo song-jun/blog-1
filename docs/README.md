@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 码农宝典
-tagline: 分享经验、成就你我他, 从此饭钱不愁
+heroText: 全栈知识库
+tagline: 分享经验、成就你我他, 从入门到大神
 features:
   - title: 前端
     details: ES6、Vuejs、Reactjs、RN、App等前端技术
