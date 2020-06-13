@@ -198,10 +198,7 @@ module.exports = {
           }
         ]
       }
-    ],
-
-    // ＂百度站长＂的资源自动推送插件
-    ["vuepress-plugin-baidu-autopush"]
+    ]
   ],
 
   //服务访问路径. 若将服务发布到github pages, 且使用github域名访问, 则必须要配置base, 如base: "/blog/"
@@ -289,14 +286,21 @@ module.exports = {
 
     // 百度站长的验证代码, 不能删除
     ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }],
+    // 添加百度站长的自动推送代码
+    [
+      "script",
+      {
+        src: "/assets/js/autopush-baidu.js"
+      }
+    ],
 
     //360站长的验证代码
     [
-      "meta",
+      ("meta",
       {
         name: "360-site-verification",
         content: "c87794c984680283c380b401a10321af"
-      }
+      })
     ],
     // 添加360站长的自动推送代码
     [
