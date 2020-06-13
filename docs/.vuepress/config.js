@@ -198,6 +198,29 @@ module.exports = {
           }
         ]
       }
+    ],
+
+    // 配置插件vuepress-plugin-thirdparty-search, 默认主题的搜索框集成第三方搜索引擎
+    [
+      "thirdparty-search",
+      {
+        thirdparty: [
+          // 可选，默认 []
+          {
+            title: "在谷歌中搜索",
+            frontUrl: "https://www.google.com.hk/search?q="
+          },
+          {
+            title: "在百度中搜索", // 在搜索结果显示的文字
+            frontUrl: "https://www.baidu.com/s?wd=", // 搜索链接的前面部分
+            behindUrl: "" // 搜索链接的后面部分，可选，默认 ''
+          },
+          {
+            title: "在360中搜索",
+            frontUrl: "https://www.so.com/s?q="
+          }
+        ]
+      }
     ]
   ],
 
