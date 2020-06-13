@@ -296,11 +296,11 @@ module.exports = {
 
     //360站长的验证代码
     [
-      ("meta",
+      "meta",
       {
         name: "360-site-verification",
         content: "c87794c984680283c380b401a10321af"
-      })
+      }
     ],
     // 添加360站长的自动推送代码
     [
