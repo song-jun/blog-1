@@ -200,7 +200,7 @@ module.exports = {
       }
     ],
 
-    // ＂百度搜索资源平台/百度站长＂的资源自动推送插件
+    // ＂百度站长＂的资源自动推送插件
     ["vuepress-plugin-baidu-autopush"]
   ],
 
@@ -287,7 +287,23 @@ module.exports = {
     ["meta", { name: "msapplication-TileColor", content: "#000000" }],
     /************ end pwa配置项 */
 
-    // 百度搜索资源平台的验证, 不能删除
-    ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }]
+    // 百度站长的验证代码, 不能删除
+    ["meta", { name: "baidu-site-verification", content: "gZcjfbZtAw" }],
+
+    //360站长的验证代码
+    [
+      "meta",
+      {
+        name: "360-site-verification",
+        content: "c87794c984680283c380b401a10321af"
+      }
+    ],
+    // 添加360站长的自动推送代码
+    [
+      "script",
+      {
+        src: "/assets/js/autopush-360.js"
+      }
+    ]
   ]
 };
