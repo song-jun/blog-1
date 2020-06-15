@@ -221,6 +221,14 @@ module.exports = {
           }
         ]
       }
+    ],
+
+    // 谷歌统计插件
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-168383599-1"
+      }
     ]
   ],
 
@@ -250,26 +258,6 @@ module.exports = {
         src: "https://v1.cnzz.com/z_stat.php?id=1278957718&web_id=1278957718"
       }
     ],
-
-    /*************** start 添加谷歌统计 ***********/
-    [
-      "script",
-      {
-        src: "https://www.googletagmanager.com/gtag/js?id=UA-168383599-1",
-        async: true
-      }
-    ],
-    [
-      "script",
-      {},
-      `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-168383599-1');
-      `
-    ],
-    /*************** end 添加谷歌统计 ***********/
 
     // 添加谷歌广告
     [
