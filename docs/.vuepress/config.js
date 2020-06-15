@@ -251,13 +251,17 @@ module.exports = {
       }
     ],
 
-    //添加谷歌统计
+    /*************** start 添加谷歌统计 ***********/
     [
       "script",
       {
         src: "https://www.googletagmanager.com/gtag/js?id=UA-168383599-1",
         async: true
-      },
+      }
+    ],
+    [
+      "script",
+      {},
       `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -265,6 +269,7 @@ module.exports = {
         gtag('config', 'UA-168383599-1');
       `
     ],
+    /*************** end 添加谷歌统计 ***********/
 
     // 添加谷歌广告
     [
