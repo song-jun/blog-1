@@ -38,8 +38,8 @@ module.exports = {
         text: "其它",
         link: "/other/",
         items: [
-          { text: "markdown", link: "/markdown-usage.html" },
-          { text: "vuepress", link: "/vuepress-usage.html" },
+          { text: "markdown用法", link: "/markdown-usage.html" },
+          { text: "vuepress教程", link: "/vuepress-catalog.html" },
           { text: "面试", link: "/java-interview.html" }
         ]
       },
