@@ -48,7 +48,7 @@ module.exports = {
         link: "/appreciate.html"
       },
       {
-        text: "申请友链",
+        text: "友链",
         link: "/friendlink.html"
       },
       {
