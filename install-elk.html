@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>安装elk | 全栈直通车-王世彪的博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?12e61954006bab17a5a7dc228772c27b";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+        </script>
+    <script src="https://v1.cnzz.com/z_stat.php?id=1278957718&amp;web_id=1278957718"></script>
+    <script data-ad-client="ca-pub-2310202030754638" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <script src="/assets/js/autopush-baidu.js"></script>
+    <script src="/assets/js/autopush-360.js"></script>
+    <meta name="description" content="全栈直通车-王世彪的博客,分享成功经验，助大家用最短的时间成为全栈软件开发工程师，java,golang,python,php,前端,后台,vue,react,app，linux,运维,docker等应有尽有">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="baidu-site-verification" content="gZcjfbZtAw">
+    <meta name="360-site-verification" content="c87794c984680283c380b401a10321af">
+    <link rel="preload" href="/assets/css/0.styles.bc8d63d8.css" as="style"><link rel="preload" href="/assets/js/app.3920ca01.js" as="script"><link rel="preload" href="/assets/js/2.da9fbad5.js" as="script"><link rel="preload" href="/assets/js/91.83872dfc.js" as="script"><link rel="preload" href="/assets/js/3.dabdee45.js" as="script"><link rel="prefetch" href="/assets/js/10.3f81cd8d.js"><link rel="prefetch" href="/assets/js/100.0c1a2cf5.js"><link rel="prefetch" href="/assets/js/101.18345062.js"><link rel="prefetch" href="/assets/js/102.a3ebead0.js"><link rel="prefetch" href="/assets/js/103.2a0ab48a.js"><link rel="prefetch" href="/assets/js/104.53dcce63.js"><link rel="prefetch" href="/assets/js/105.4f5ee71e.js"><link rel="prefetch" href="/assets/js/106.485e43b4.js"><link rel="prefetch" href="/assets/js/107.64c5a5b7.js"><link rel="prefetch" href="/assets/js/108.1f95aab4.js"><link rel="prefetch" href="/assets/js/109.d0baf30e.js"><link rel="prefetch" href="/assets/js/11.4aa68d63.js"><link rel="prefetch" href="/assets/js/110.62a05312.js"><link rel="prefetch" href="/assets/js/111.97a18863.js"><link rel="prefetch" href="/assets/js/112.0d4da45f.js"><link rel="prefetch" href="/assets/js/113.83a94b05.js"><link rel="prefetch" href="/assets/js/114.cfa34a77.js"><link rel="prefetch" href="/assets/js/115.8f982aba.js"><link rel="prefetch" href="/assets/js/116.79527f03.js"><link rel="prefetch" href="/assets/js/117.408653f4.js"><link rel="prefetch" href="/assets/js/12.b87097a9.js"><link rel="prefetch" href="/assets/js/13.60154ab9.js"><link rel="prefetch" href="/assets/js/14.0992d4fb.js"><link rel="prefetch" href="/assets/js/15.266569ea.js"><link rel="prefetch" href="/assets/js/16.bded0eac.js"><link rel="prefetch" href="/assets/js/17.6830bf0c.js"><link rel="prefetch" href="/assets/js/18.94a60eef.js"><link rel="prefetch" href="/assets/js/19.12fc453e.js"><link rel="prefetch" href="/assets/js/20.d1cb7bac.js"><link rel="prefetch" href="/assets/js/21.97b9ed65.js"><link rel="prefetch" href="/assets/js/22.539e22b6.js"><link rel="prefetch" href="/assets/js/23.3dc2f4da.js"><link rel="prefetch" href="/assets/js/24.967fef0a.js"><link rel="prefetch" href="/assets/js/25.aaaceab2.js"><link rel="prefetch" href="/assets/js/26.0a51fced.js"><link rel="prefetch" href="/assets/js/27.bc0ee3a5.js"><link rel="prefetch" href="/assets/js/28.06b59d0e.js"><link rel="prefetch" href="/assets/js/29.5ff595c2.js"><link rel="prefetch" href="/assets/js/30.74d30592.js"><link rel="prefetch" href="/assets/js/31.36913e0f.js"><link rel="prefetch" href="/assets/js/32.31adf3a2.js"><link rel="prefetch" href="/assets/js/33.5725978e.js"><link rel="prefetch" href="/assets/js/34.4e4b11eb.js"><link rel="prefetch" href="/assets/js/35.721ae5a5.js"><link rel="prefetch" href="/assets/js/36.78996329.js"><link rel="prefetch" href="/assets/js/37.18196a18.js"><link rel="prefetch" href="/assets/js/38.4a99d5e2.js"><link rel="prefetch" href="/assets/js/39.30e78cd9.js"><link rel="prefetch" href="/assets/js/4.d8493e59.js"><link rel="prefetch" href="/assets/js/40.8193f603.js"><link rel="prefetch" href="/assets/js/41.274a8acb.js"><link rel="prefetch" href="/assets/js/42.a0325a28.js"><link rel="prefetch" href="/assets/js/43.919ad4f7.js"><link rel="prefetch" href="/assets/js/44.2aa6623c.js"><link rel="prefetch" href="/assets/js/45.8969380c.js"><link rel="prefetch" href="/assets/js/46.7975a128.js"><link rel="prefetch" href="/assets/js/47.4f07d191.js"><link rel="prefetch" href="/assets/js/48.b15a3bde.js"><link rel="prefetch" href="/assets/js/49.f1c3c20d.js"><link rel="prefetch" href="/assets/js/5.7da3fbc8.js"><link rel="prefetch" href="/assets/js/50.c32be27f.js"><link rel="prefetch" href="/assets/js/51.779c1cbc.js"><link rel="prefetch" href="/assets/js/52.4a7afa72.js"><link rel="prefetch" href="/assets/js/53.e8ee40ec.js"><link rel="prefetch" href="/assets/js/54.3bcef2ed.js"><link rel="prefetch" href="/assets/js/55.923098e5.js"><link rel="prefetch" href="/assets/js/56.d046890a.js"><link rel="prefetch" href="/assets/js/57.838d1b4d.js"><link rel="prefetch" href="/assets/js/58.7fc3f8cd.js"><link rel="prefetch" href="/assets/js/59.1facd852.js"><link rel="prefetch" href="/assets/js/6.10d07598.js"><link rel="prefetch" href="/assets/js/60.855f5f6a.js"><link rel="prefetch" href="/assets/js/61.b1e74e45.js"><link rel="prefetch" href="/assets/js/62.55d7ef77.js"><link rel="prefetch" href="/assets/js/63.561af5f0.js"><link rel="prefetch" href="/assets/js/64.3be3157c.js"><link rel="prefetch" href="/assets/js/65.c39d3e83.js"><link rel="prefetch" href="/assets/js/66.5689a3a0.js"><link rel="prefetch" href="/assets/js/67.18333a76.js"><link rel="prefetch" href="/assets/js/68.6c699cd3.js"><link rel="prefetch" href="/assets/js/69.9e057e23.js"><link rel="prefetch" href="/assets/js/7.80031788.js"><link rel="prefetch" href="/assets/js/70.6de833a0.js"><link rel="prefetch" href="/assets/js/71.502064d3.js"><link rel="prefetch" href="/assets/js/72.3efae482.js"><link rel="prefetch" href="/assets/js/73.753b8877.js"><link rel="prefetch" href="/assets/js/74.40e72114.js"><link rel="prefetch" href="/assets/js/75.21235cfe.js"><link rel="prefetch" href="/assets/js/76.868909a0.js"><link rel="prefetch" href="/assets/js/77.cbbad6c0.js"><link rel="prefetch" href="/assets/js/78.3c20a407.js"><link rel="prefetch" href="/assets/js/79.892074e4.js"><link rel="prefetch" href="/assets/js/8.cf7e5901.js"><link rel="prefetch" href="/assets/js/80.f082a839.js"><link rel="prefetch" href="/assets/js/81.436f280f.js"><link rel="prefetch" href="/assets/js/82.ac92782b.js"><link rel="prefetch" href="/assets/js/83.667a3f43.js"><link rel="prefetch" href="/assets/js/84.c20faa0e.js"><link rel="prefetch" href="/assets/js/85.fad090c4.js"><link rel="prefetch" href="/assets/js/86.5de1be43.js"><link rel="prefetch" href="/assets/js/87.98da1e56.js"><link rel="prefetch" href="/assets/js/88.cea0ae79.js"><link rel="prefetch" href="/assets/js/89.c882713a.js"><link rel="prefetch" href="/assets/js/9.64caa871.js"><link rel="prefetch" href="/assets/js/90.531d67ab.js"><link rel="prefetch" href="/assets/js/92.9e7a2d88.js"><link rel="prefetch" href="/assets/js/93.1a06a70a.js"><link rel="prefetch" href="/assets/js/94.e3a405dc.js"><link rel="prefetch" href="/assets/js/95.c7df6e2f.js"><link rel="prefetch" href="/assets/js/96.63cef1a8.js"><link rel="prefetch" href="/assets/js/97.683518fa.js"><link rel="prefetch" href="/assets/js/98.80086ada.js"><link rel="prefetch" href="/assets/js/99.a980ae1b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bc8d63d8.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">全栈直通车-王世彪的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/shuaige.jpg"> <div class="blogger-info"><h3>王世彪</h3> <span>
+        努力做个影响他人滴人
+      </span></div></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>redis</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>memcached</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mongodb</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>c或c++</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nodejs</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>tomcat</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>elk</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/install-elk.html" aria-current="page" class="active sidebar-link">安装elk</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/install-elk.html#_1-约定" class="sidebar-link">1. 约定</a></li><li class="sidebar-sub-header"><a href="/install-elk.html#_2-准备资源" class="sidebar-link">2. 准备资源</a></li><li class="sidebar-sub-header"><a href="/install-elk.html#_3-安装" class="sidebar-link">3. 安装</a></li><li class="sidebar-sub-header"><a href="/install-elk.html#_4-安装验证" class="sidebar-link">4. 安装验证</a></li><li class="sidebar-sub-header"><a href="/install-elk.html#_5-备注" class="sidebar-link">5. 备注</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>音视频流媒体</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"> <div class="theme-vdoing-wrapper"><div class="articleInfo-wrap" data-v-14888ed5><div class="articleInfo" data-v-14888ed5><ul class="breadcrumbs" data-v-14888ed5><li data-v-14888ed5><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-14888ed5></a></li> <li data-v-14888ed5><a href="/categories/?category=%E5%90%8E%E5%8F%B0" title="分类" data-v-14888ed5>后台</a></li> <li data-v-14888ed5><a href="/categories/?category=elk" title="分类" data-v-14888ed5>elk</a></li></ul> <div class="info" data-v-14888ed5><div title="作者" class="author iconfont icon-touxiang" data-v-14888ed5><a href="https://github.com/wangshibiaoFlytiger" target="_blank" title="作者" class="beLink" data-v-14888ed5>王世彪</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-14888ed5><a href="javascript:;" data-v-14888ed5>2020-06-04</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">
+          安装elk
+        </h1> <div class="theme-vdoing-content content__default"><p></p><div class="table-of-contents"><ul><li><a href="#安装-elk">安装 elk</a><ul><li><a href="#_1-约定">1. 约定</a></li><li><a href="#_2-准备资源">2. 准备资源</a></li><li><a href="#_3-安装">3. 安装</a><ul><li><a href="#_3-1-安装前准备操作">3.1 安装前准备操作</a></li><li><a href="#_3-2-安装-elasticsearch">3.2 安装 elasticsearch</a></li><li><a href="#_3-3-安装-logstash">3.3 安装 logstash</a></li><li><a href="#_3-4-安装-kibana">3.4 安装 kibana</a></li><li><a href="#_3-5-安装-elasticsearch-head">3.5 安装 elasticsearch-head</a></li></ul></li><li><a href="#_4-安装验证">4. 安装验证</a><ul><li><a href="#_4-1-验证-elastic">4.1 验证 elastic</a></li><li><a href="#_4-2-验证-kibana">4.2 验证 kibana</a></li></ul></li><li><a href="#_5-备注">5. 备注</a><ul><li><a href="#_5-1-配置自定义词典">5.1 配置自定义词典</a><ul><li><a href="#_5-1-1-将自定义词典文件放到-web-服务">5.1.1 将自定义词典文件放到 web 服务</a></li><li><a href="#_5-1-2-配置-elasticsearch">5.1.2 配置 elasticsearch</a></li><li><a href="#_5-1-3-重启-elasticsearch">5.1.3 重启 elasticsearch</a></li></ul></li></ul></li></ul></li></ul></div><p></p> <h1 id="安装-elk"><a href="#安装-elk" class="header-anchor">#</a> 安装 elk</h1> <h2 id="_1-约定"><a href="#_1-约定" class="header-anchor">#</a> 1. 约定</h2> <p>操作系统：Ubuntu 16.04.3 LTS</p> <h2 id="_2-准备资源"><a href="#_2-准备资源" class="header-anchor">#</a> 2. 准备资源</h2> <p>jdk-8u144-linux-x64.tar.gz<br>
+elasticsearch-6.1.1.tar.gz<br>
+logstash-6.1.1.tar.gz<br>
+kibana-6.1.1-linux-x86_64.tar.gz<br>
+mysql-connector-java-5.1.41.jar</p> <h2 id="_3-安装"><a href="#_3-安装" class="header-anchor">#</a> 3. 安装</h2> <h3 id="_3-1-安装前准备操作"><a href="#_3-1-安装前准备操作" class="header-anchor">#</a> 3.1 安装前准备操作</h3> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>所有安装操作都在 docker 内执行</p></div> <ul><li><p>创建容器环境
+docker run -itd --privileged --name elk-ubuntu -p 9100:9100 -p 9200:9200 -p 9300:9300 -p 5601:5601 ubuntu:16.04<br>
+docker cp /data/programInstaller/elasticsearch-6.1.1.tar.gz 28:/root/<br>
+docker cp /data/programInstaller/jdk-8u144-linux-x64.tar.gz 28:/root/<br>
+docker cp /data/programInstaller/kibana-6.1.1-linux-x86_64.tar.gz 28:/root/<br>
+docker cp /data/programInstaller/logstash-6.1.1.tar.gz 28:/root/<br>
+docker cp /data/programInstaller/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar 28:/root/<br>
+docker exec -it 28 bash<br>
+apt-get update<br>
+apt-get install vim curl net-tools -y</p></li> <li><p>优化配置
+vi /etc/security/limits.conf</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>- soft nofile 65536
+- hard nofile 131072
+- soft nproc 2048
+- hard nproc 4096
+</code></pre></div><p>vi /etc/security/limits.d/90-nproc.conf</p> <div class="language- extra-class"><pre class="language-text"><code>-          soft    nproc     4096
+  root soft nproc unlimited
+</code></pre></div><p>vi /etc/sysctl.conf</p> <div class="language- extra-class"><pre class="language-text"><code>vm.max_map_count=262144
+</code></pre></div><p>sysctl -p</p> <p>cd /root<br>
+tar -zxvf /root/jdk-8u144-linux-x64.tar.gz -C /usr/local/<br>
+vi /etc/profile.d/jdk.sh</p> <div class="language- extra-class"><pre class="language-text"><code>#java
+export JAVA_HOME=/usr/local/jdk1.8.0_144
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre></div><p>source /etc/profile</p> <p>tar -zxvf /root/elasticsearch-6.1.1.tar.gz -C /usr/local/<br>
+tar -zxvf /root/kibana-6.1.1-linux-x86_64.tar.gz -C /usr/local/<br>
+tar -zxvf /root/logstash-6.1.1.tar.gz -C /usr/local/<br>
+cp /root/mysql-connector-java-5.1.41.jar /usr/local/logstash-6.1.1/<br>
+groupadd elkusergroup<br>
+useradd elkuser -g elkusergroup -m<br>
+chown -R elkuser:elkusergroup /usr/local/elasticsearch-6.1.1/<br>
+chown -R elkuser:elkusergroup /usr/local/kibana-6.1.1-linux-x86_64/<br>
+chown -R elkuser:elkusergroup /usr/local/logstash-6.1.1/<br>
+su elkuser</p> <h3 id="_3-2-安装-elasticsearch"><a href="#_3-2-安装-elasticsearch" class="header-anchor">#</a> 3.2 安装 elasticsearch</h3> <p>/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install x-pack<br>
+/usr/local/elasticsearch-6.1.1/bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.1.1/elasticsearch-analysis-ik-6.1.1.zip<br>
+vi /usr/local/elasticsearch-6.1.1/config/elasticsearch.yml</p> <div class="language- extra-class"><pre class="language-text"><code>network.host: 0.0.0.0
+cluster.name: my-elastic-cluster1
+node.name: elastic-node-1 #如果禁用安全组件，那么就没有了用户管理功能;如果要集成 logstash，那么暂时先做如下配置才能对接成功，否则可能需要做 ssl 相关配置才行 #如果没有安装 x-pack，则不需要如下配置
+xpack.security.enabled: false
+</code></pre></div><p>vi /usr/local/elasticsearch-6.1.1/config/jvm.options</p> <div class="language- extra-class"><pre class="language-text"><code>-Xms3g
+-Xmx3g
+</code></pre></div><p>/usr/local/elasticsearch-6.1.1/bin/elasticsearch --verbose -d</p> <p><strong>设置 elastic，kibana,logstash_system 的密码[约定都设置为 123456].用户名分别为 elastic,kibana,logstash_system #如果没有安装 x-pack，则不需要如下设置密码操作</strong><br>
+/usr/local/elasticsearch-6.1.1/bin/x-pack/setup-passwords interactive</p> <h3 id="_3-3-安装-logstash"><a href="#_3-3-安装-logstash" class="header-anchor">#</a> 3.3 安装 logstash</h3> <p>/usr/local/logstash-6.1.1/bin/logstash-plugin install x-pack</p> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>需要确保源数据库的表中含有 update_time 字段</p></div> <p>vi /usr/local/logstash-6.1.1/config/logstash.conf</p> <div class="language- extra-class"><pre class="language-text"><code>input {
+stdin {
+}
+jdbc {
+jdbc_connection_string =&gt; &quot;jdbc:mysql://172.16.38.73:3306/beauty2&quot;
+jdbc_user =&gt; &quot;root&quot;
+jdbc_password =&gt; &quot;123456&quot;
+jdbc_driver_library =&gt; &quot;/usr/local/logstash-6.1.1/mysql-connector-java-5.1.41.jar&quot;
+jdbc_driver_class =&gt; &quot;com.mysql.jdbc.Driver&quot;
+jdbc_paging_enabled =&gt; &quot;true&quot;
+jdbc_page_size =&gt; &quot;50000&quot;
+
+statement_filepath =&gt; &quot;/usr/local/logstash-6.1.1/jdbc.sql&quot;
+use_column_value =&gt; &quot;true&quot;
+tracking_column =&gt; &quot;update_time&quot;
+schedule =&gt; &quot;\* \* \* \* \*&quot;
+}
+}
+
+output {
+elasticsearch {
+hosts =&gt; [&quot;http://localhost:9200&quot;]
+
+       index =&gt; &quot;beauty2&quot;
+       document_type =&gt; &quot;gallery&quot;
+       document_id =&gt; &quot;%{id}&quot;
+
+       template =&gt; &quot;/usr/local/logstash-6.1.1/template/logstash.json&quot;
+       template_overwrite =&gt; true
+    }
+    stdout{
+       codec=&gt;json_lines
+    }
+
+}
+</code></pre></div><p>vi /usr/local/logstash-6.1.1/jdbc.sql</p> <div class="language- extra-class"><pre class="language-text"><code>SELECT \* FROM sys_gallery where update_time &gt; :sql_last_value
+</code></pre></div><p>mkdir /usr/local/logstash-6.1.1/template<br>
+vi /usr/local/logstash-6.1.1/template/logstash.json</p> <div class="language- extra-class"><pre class="language-text"><code>{
+&quot;template&quot;: &quot;_&quot;,
+&quot;version&quot;: 60001,
+&quot;settings&quot;: {
+&quot;index&quot;: {
+&quot;refresh*interval&quot;: &quot;5s&quot;
+}
+},
+&quot;mappings&quot;: {
+&quot;\_default*&quot;: {
+&quot;dynamic_templates&quot;: [
+{
+&quot;message_field&quot;: {
+&quot;path_match&quot;: &quot;message&quot;,
+&quot;match_mapping_type&quot;: &quot;string&quot;,
+&quot;mapping&quot;: {
+&quot;type&quot;: &quot;text&quot;,
+&quot;norms&quot;: false,
+&quot;analyzer&quot;: &quot;ik_max_word&quot;,
+&quot;search_analyzer&quot;: &quot;ik_smart&quot;
+}
+}
+},
+{
+&quot;string_fields&quot;: {
+&quot;match&quot;: &quot;_&quot;,
+&quot;match_mapping_type&quot;: &quot;string&quot;,
+&quot;mapping&quot;: {
+&quot;type&quot;: &quot;text&quot;,
+&quot;norms&quot;: false,
+&quot;analyzer&quot;: &quot;ik_max_word&quot;,
+&quot;search_analyzer&quot;: &quot;ik_smart&quot;,
+&quot;fields&quot;: {
+&quot;keyword&quot;: {
+&quot;type&quot;: &quot;keyword&quot;,
+&quot;ignore_above&quot;: 256
+}
+}
+}
+}
+}
+],
+&quot;properties&quot;: {
+&quot;@timestamp&quot;: {
+&quot;type&quot;: &quot;date&quot;
+},
+&quot;@version&quot;: {
+&quot;type&quot;: &quot;keyword&quot;
+},
+&quot;geoip&quot;: {
+&quot;dynamic&quot;: true,
+&quot;properties&quot;: {
+&quot;ip&quot;: {
+&quot;type&quot;: &quot;ip&quot;
+},
+&quot;location&quot;: {
+&quot;type&quot;: &quot;geo_point&quot;
+},
+&quot;latitude&quot;: {
+&quot;type&quot;: &quot;half_float&quot;
+},
+&quot;longitude&quot;: {
+&quot;type&quot;: &quot;half_float&quot;
+}
+}
+}
+}
+}
+},
+&quot;aliases&quot;: {}
+}
+</code></pre></div><p>/usr/local/logstash-6.1.1/bin/logstash -f /usr/local/logstash-6.1.1/config/logstash.conf</p> <h3 id="_3-4-安装-kibana"><a href="#_3-4-安装-kibana" class="header-anchor">#</a> 3.4 安装 kibana</h3> <p>/usr/local/kibana-6.1.1-linux-x86_64/bin/kibana-plugin install x-pack<br>
+vi /usr/local/kibana-6.1.1-linux-x86_64/config/kibana.yml</p> <div class="language- extra-class"><pre class="language-text"><code>server.host: &quot;0.0.0.0&quot;
+elasticsearch.url: &quot;http://localhost:9200&quot;
+
+#如果没有安装 x-pack，则不需要如下 2 行配置
+elasticsearch.username: &quot;elastic&quot;
+elasticsearch.password: &quot;123456&quot;
+</code></pre></div><p>nohup /usr/local/kibana-6.1.1-linux-x86_64/bin/kibana &gt;/usr/local/kibana-6.1.1-linux-x86_64/log 2&gt;&amp;1 &amp;</p> <h3 id="_3-5-安装-elasticsearch-head"><a href="#_3-5-安装-elasticsearch-head" class="header-anchor">#</a> 3.5 安装 elasticsearch-head</h3> <p>可以安装独立的 head 服务[默认端口 9100],也可以改用 chrome 浏览器的 elasticsearch-head 插件</p> <h2 id="_4-安装验证"><a href="#_4-安装验证" class="header-anchor">#</a> 4. 安装验证</h2> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>可在宿主机操作</p></div> <h3 id="_4-1-验证-elastic"><a href="#_4-1-验证-elastic" class="header-anchor">#</a> 4.1 验证 elastic</h3> <p>浏览器访问:http://localhost:9200/?pretty</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>账号密码(安装步骤中已设置)：elastic/123456</p></div> <h3 id="_4-2-验证-kibana"><a href="#_4-2-验证-kibana" class="header-anchor">#</a> 4.2 验证 kibana</h3> <p>浏览器访问:http://localhost:5601</p> <p>账号密码(安装步骤中已设置)：kibana/123456</p> <h2 id="_5-备注"><a href="#_5-备注" class="header-anchor">#</a> 5. 备注</h2> <h3 id="_5-1-配置自定义词典"><a href="#_5-1-配置自定义词典" class="header-anchor">#</a> 5.1 配置自定义词典</h3> <h4 id="_5-1-1-将自定义词典文件放到-web-服务"><a href="#_5-1-1-将自定义词典文件放到-web-服务" class="header-anchor">#</a> 5.1.1 将自定义词典文件放到 web 服务</h4> <p>例如访问路径http://172.16.38.73:8081/meitu_ik_custom.dic<br>
+文件格式如下(要求 utf8 编码)</p> <div class="language- extra-class"><pre class="language-text"><code>美臀
+爆乳
+</code></pre></div><h4 id="_5-1-2-配置-elasticsearch"><a href="#_5-1-2-配置-elasticsearch" class="header-anchor">#</a> 5.1.2 配置 elasticsearch</h4> <p>vi /usr/local/elasticsearch-6.1.1/config/analysis-ik/IKAnalyzer.cfg.xml</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- 指定远程扩展字典服务 --&gt;
+&lt;entry key=&quot;remote_ext_dict&quot;&gt;http://172.16.38.73:8081/meitu_ik_custom.dic&lt;/entry&gt;
+</code></pre></div><h4 id="_5-1-3-重启-elasticsearch"><a href="#_5-1-3-重启-elasticsearch" class="header-anchor">#</a> 5.1.3 重启 elasticsearch</h4> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>若想对历史文档应用自定义词典,则需要重新导入历史文档</p></div></div></div> <div class="page-edit"><!----> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-06-18 01:54:32</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/tomcat-jmx.html" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">
+        tomcat的jmx配置
+      </div></a> <a href="/ffmpeg-common-command.html" class="page-nav-centre page-nav-centre-next"><div class="tooltip">
+         ffmpeg常用命令
+      </div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/tomcat-jmx.html" class="prev">tomcat的jmx配置</a></span> <span class="next"><a href="/ffmpeg-common-command.html"> ffmpeg常用命令</a>
+        →
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-shizhong">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/javascript-insert-html.html"><div>javascript动态插入html片段</div></a> <span>08-04</span></dt></dl><dl><dd>02</dd> <dt><a href="/javascript-template-engine-mustache.html"><div>js模板引擎mustache用法</div></a> <span>08-04</span></dt></dl><dl><dd>03</dd> <dt><a href="/install-pycharm.html"><div>安装配置pycharm</div></a> <span>07-30</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div> </main></div> <div class="footer"><div class="icons"><a href="mailto:645102170@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wangshibiaoFlytiger" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+     | Copyright © 2019-2020
+    <span>王世彪 | MIT License <br/> <a href='http://www.beian.miit.gov.cn'>冀ICP备19016776号-1</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----></div><div class="global-ui"><div></div><!----></div></div>
+    <script src="/assets/js/app.3920ca01.js" defer></script><script src="/assets/js/2.da9fbad5.js" defer></script><script src="/assets/js/91.83872dfc.js" defer></script><script src="/assets/js/3.dabdee45.js" defer></script>
+  </body>
+</html>

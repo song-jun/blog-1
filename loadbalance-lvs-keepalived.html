@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>部署负载均衡器LVS Keepalived | 全栈直通车-王世彪的博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?12e61954006bab17a5a7dc228772c27b";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+        </script>
+    <script src="https://v1.cnzz.com/z_stat.php?id=1278957718&amp;web_id=1278957718"></script>
+    <script data-ad-client="ca-pub-2310202030754638" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <script src="/assets/js/autopush-baidu.js"></script>
+    <script src="/assets/js/autopush-360.js"></script>
+    <meta name="description" content="全栈直通车-王世彪的博客,分享成功经验，助大家用最短的时间成为全栈软件开发工程师，java,golang,python,php,前端,后台,vue,react,app，linux,运维,docker等应有尽有">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="baidu-site-verification" content="gZcjfbZtAw">
+    <meta name="360-site-verification" content="c87794c984680283c380b401a10321af">
+    <link rel="preload" href="/assets/css/0.styles.bc8d63d8.css" as="style"><link rel="preload" href="/assets/js/app.3920ca01.js" as="script"><link rel="preload" href="/assets/js/2.da9fbad5.js" as="script"><link rel="preload" href="/assets/js/108.1f95aab4.js" as="script"><link rel="preload" href="/assets/js/3.dabdee45.js" as="script"><link rel="prefetch" href="/assets/js/10.3f81cd8d.js"><link rel="prefetch" href="/assets/js/100.0c1a2cf5.js"><link rel="prefetch" href="/assets/js/101.18345062.js"><link rel="prefetch" href="/assets/js/102.a3ebead0.js"><link rel="prefetch" href="/assets/js/103.2a0ab48a.js"><link rel="prefetch" href="/assets/js/104.53dcce63.js"><link rel="prefetch" href="/assets/js/105.4f5ee71e.js"><link rel="prefetch" href="/assets/js/106.485e43b4.js"><link rel="prefetch" href="/assets/js/107.64c5a5b7.js"><link rel="prefetch" href="/assets/js/109.d0baf30e.js"><link rel="prefetch" href="/assets/js/11.4aa68d63.js"><link rel="prefetch" href="/assets/js/110.62a05312.js"><link rel="prefetch" href="/assets/js/111.97a18863.js"><link rel="prefetch" href="/assets/js/112.0d4da45f.js"><link rel="prefetch" href="/assets/js/113.83a94b05.js"><link rel="prefetch" href="/assets/js/114.cfa34a77.js"><link rel="prefetch" href="/assets/js/115.8f982aba.js"><link rel="prefetch" href="/assets/js/116.79527f03.js"><link rel="prefetch" href="/assets/js/117.408653f4.js"><link rel="prefetch" href="/assets/js/12.b87097a9.js"><link rel="prefetch" href="/assets/js/13.60154ab9.js"><link rel="prefetch" href="/assets/js/14.0992d4fb.js"><link rel="prefetch" href="/assets/js/15.266569ea.js"><link rel="prefetch" href="/assets/js/16.bded0eac.js"><link rel="prefetch" href="/assets/js/17.6830bf0c.js"><link rel="prefetch" href="/assets/js/18.94a60eef.js"><link rel="prefetch" href="/assets/js/19.12fc453e.js"><link rel="prefetch" href="/assets/js/20.d1cb7bac.js"><link rel="prefetch" href="/assets/js/21.97b9ed65.js"><link rel="prefetch" href="/assets/js/22.539e22b6.js"><link rel="prefetch" href="/assets/js/23.3dc2f4da.js"><link rel="prefetch" href="/assets/js/24.967fef0a.js"><link rel="prefetch" href="/assets/js/25.aaaceab2.js"><link rel="prefetch" href="/assets/js/26.0a51fced.js"><link rel="prefetch" href="/assets/js/27.bc0ee3a5.js"><link rel="prefetch" href="/assets/js/28.06b59d0e.js"><link rel="prefetch" href="/assets/js/29.5ff595c2.js"><link rel="prefetch" href="/assets/js/30.74d30592.js"><link rel="prefetch" href="/assets/js/31.36913e0f.js"><link rel="prefetch" href="/assets/js/32.31adf3a2.js"><link rel="prefetch" href="/assets/js/33.5725978e.js"><link rel="prefetch" href="/assets/js/34.4e4b11eb.js"><link rel="prefetch" href="/assets/js/35.721ae5a5.js"><link rel="prefetch" href="/assets/js/36.78996329.js"><link rel="prefetch" href="/assets/js/37.18196a18.js"><link rel="prefetch" href="/assets/js/38.4a99d5e2.js"><link rel="prefetch" href="/assets/js/39.30e78cd9.js"><link rel="prefetch" href="/assets/js/4.d8493e59.js"><link rel="prefetch" href="/assets/js/40.8193f603.js"><link rel="prefetch" href="/assets/js/41.274a8acb.js"><link rel="prefetch" href="/assets/js/42.a0325a28.js"><link rel="prefetch" href="/assets/js/43.919ad4f7.js"><link rel="prefetch" href="/assets/js/44.2aa6623c.js"><link rel="prefetch" href="/assets/js/45.8969380c.js"><link rel="prefetch" href="/assets/js/46.7975a128.js"><link rel="prefetch" href="/assets/js/47.4f07d191.js"><link rel="prefetch" href="/assets/js/48.b15a3bde.js"><link rel="prefetch" href="/assets/js/49.f1c3c20d.js"><link rel="prefetch" href="/assets/js/5.7da3fbc8.js"><link rel="prefetch" href="/assets/js/50.c32be27f.js"><link rel="prefetch" href="/assets/js/51.779c1cbc.js"><link rel="prefetch" href="/assets/js/52.4a7afa72.js"><link rel="prefetch" href="/assets/js/53.e8ee40ec.js"><link rel="prefetch" href="/assets/js/54.3bcef2ed.js"><link rel="prefetch" href="/assets/js/55.923098e5.js"><link rel="prefetch" href="/assets/js/56.d046890a.js"><link rel="prefetch" href="/assets/js/57.838d1b4d.js"><link rel="prefetch" href="/assets/js/58.7fc3f8cd.js"><link rel="prefetch" href="/assets/js/59.1facd852.js"><link rel="prefetch" href="/assets/js/6.10d07598.js"><link rel="prefetch" href="/assets/js/60.855f5f6a.js"><link rel="prefetch" href="/assets/js/61.b1e74e45.js"><link rel="prefetch" href="/assets/js/62.55d7ef77.js"><link rel="prefetch" href="/assets/js/63.561af5f0.js"><link rel="prefetch" href="/assets/js/64.3be3157c.js"><link rel="prefetch" href="/assets/js/65.c39d3e83.js"><link rel="prefetch" href="/assets/js/66.5689a3a0.js"><link rel="prefetch" href="/assets/js/67.18333a76.js"><link rel="prefetch" href="/assets/js/68.6c699cd3.js"><link rel="prefetch" href="/assets/js/69.9e057e23.js"><link rel="prefetch" href="/assets/js/7.80031788.js"><link rel="prefetch" href="/assets/js/70.6de833a0.js"><link rel="prefetch" href="/assets/js/71.502064d3.js"><link rel="prefetch" href="/assets/js/72.3efae482.js"><link rel="prefetch" href="/assets/js/73.753b8877.js"><link rel="prefetch" href="/assets/js/74.40e72114.js"><link rel="prefetch" href="/assets/js/75.21235cfe.js"><link rel="prefetch" href="/assets/js/76.868909a0.js"><link rel="prefetch" href="/assets/js/77.cbbad6c0.js"><link rel="prefetch" href="/assets/js/78.3c20a407.js"><link rel="prefetch" href="/assets/js/79.892074e4.js"><link rel="prefetch" href="/assets/js/8.cf7e5901.js"><link rel="prefetch" href="/assets/js/80.f082a839.js"><link rel="prefetch" href="/assets/js/81.436f280f.js"><link rel="prefetch" href="/assets/js/82.ac92782b.js"><link rel="prefetch" href="/assets/js/83.667a3f43.js"><link rel="prefetch" href="/assets/js/84.c20faa0e.js"><link rel="prefetch" href="/assets/js/85.fad090c4.js"><link rel="prefetch" href="/assets/js/86.5de1be43.js"><link rel="prefetch" href="/assets/js/87.98da1e56.js"><link rel="prefetch" href="/assets/js/88.cea0ae79.js"><link rel="prefetch" href="/assets/js/89.c882713a.js"><link rel="prefetch" href="/assets/js/9.64caa871.js"><link rel="prefetch" href="/assets/js/90.531d67ab.js"><link rel="prefetch" href="/assets/js/91.83872dfc.js"><link rel="prefetch" href="/assets/js/92.9e7a2d88.js"><link rel="prefetch" href="/assets/js/93.1a06a70a.js"><link rel="prefetch" href="/assets/js/94.e3a405dc.js"><link rel="prefetch" href="/assets/js/95.c7df6e2f.js"><link rel="prefetch" href="/assets/js/96.63cef1a8.js"><link rel="prefetch" href="/assets/js/97.683518fa.js"><link rel="prefetch" href="/assets/js/98.80086ada.js"><link rel="prefetch" href="/assets/js/99.a980ae1b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bc8d63d8.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">全栈直通车-王世彪的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" class="nav-link">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/shuaige.jpg"> <div class="blogger-info"><h3>王世彪</h3> <span>
+        努力做个影响他人滴人
+      </span></div></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" class="nav-link">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>负载均衡</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/loadbalance-haproxy-keepalived.html" class="sidebar-link">部署负载均衡器HAProxy Keepalived</a></li><li><a href="/loadbalance-lvs-keepalived.html" aria-current="page" class="active sidebar-link">部署负载均衡器LVS Keepalived</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#准备环境" class="sidebar-link">准备环境</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#约定" class="sidebar-link">约定</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#安装-lvs-master" class="sidebar-link">安装 LVS_Master</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#安装-lvs-backup" class="sidebar-link">安装 LVS_Backup</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#安装-realserver1" class="sidebar-link">安装 realServer1</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#安装-realserver2" class="sidebar-link">安装 realServer2</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#安装验证" class="sidebar-link">安装验证</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#查看日志" class="sidebar-link">查看日志</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#查看请求调度信息" class="sidebar-link">查看请求调度信息</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#rtmp-负载均衡" class="sidebar-link">RTMP 负载均衡</a></li><li class="sidebar-sub-header"><a href="/loadbalance-lvs-keepalived.html#与-haproxy-区别" class="sidebar-link">与 HAProxy 区别</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>项目管理</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>持续集成</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>大数据</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"> <div class="theme-vdoing-wrapper"><div class="articleInfo-wrap" data-v-14888ed5><div class="articleInfo" data-v-14888ed5><ul class="breadcrumbs" data-v-14888ed5><li data-v-14888ed5><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-14888ed5></a></li> <li data-v-14888ed5><a href="/categories/?category=%E8%BF%90%E7%BB%B4" title="分类" data-v-14888ed5>运维</a></li> <li data-v-14888ed5><a href="/categories/?category=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1" title="分类" data-v-14888ed5>负载均衡</a></li></ul> <div class="info" data-v-14888ed5><div title="作者" class="author iconfont icon-touxiang" data-v-14888ed5><a href="https://github.com/wangshibiaoFlytiger" target="_blank" title="作者" class="beLink" data-v-14888ed5>王世彪</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-14888ed5><a href="javascript:;" data-v-14888ed5>2020-06-24</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">
+          部署负载均衡器LVS Keepalived
+        </h1> <div class="theme-vdoing-content content__default"><h1 id="部署负载均衡器-lvs-keepalived"><a href="#部署负载均衡器-lvs-keepalived" class="header-anchor">#</a> 部署负载均衡器 LVS Keepalived</h1> <h2 id="准备环境"><a href="#准备环境" class="header-anchor">#</a> 准备环境</h2> <p>CentOS-6.4-x86_64-minimal</p> <h2 id="约定"><a href="#约定" class="header-anchor">#</a> 约定</h2> <p>LVS_Master: 10.96.33.243<br>
+LVS_Backup: 10.96.33.244<br>
+realServer1: 10.96.33.246<br>
+realServer2: 10.96.33.249<br>
+VIP：10.96.33.230<br>
+所有服务器均须处同一网段（当然客户端除外）<br>
+所有服务器的网卡 MAC 地址不能相同（克隆虚拟机时注意此项）<br>
+realserver1、realserver2 的服务端口：80</p> <h2 id="安装-lvs-master"><a href="#安装-lvs-master" class="header-anchor">#</a> 安装 LVS_Master</h2> <p>vi /etc/sysconfig/iptables</p> <div class="language- extra-class"><pre class="language-text"><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -d 224.0.0.0/8 -j ACCEPT
+-A INPUT -p vrrp -j ACCEPT
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624120600.png" alt="20200624120600.png"><br>
+service iptables restart<br>
+yum install -y ipvsadm<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624120624.png" alt="20200624120624.png"><br>
+ipvsadm<br>
+chkconfig ipvsadm on<br>
+service ipvsadm start<br>
+yum install -y keepalived<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624120727.png" alt="20200624120727.png"><br>
+chkconfig keepalived on<br>
+modprobe -l | grep ipvs<br>
+lsmod |grep ip_vs //查看模块是否加载成功<br>
+vi /etc/keepalived/keepalived.conf</p> <div class="language- extra-class"><pre class="language-text"><code>! Configuration File for keepalived
+
+global_defs {
+    notification_email {
+        acassen@firewall.loc
+        failover@firewall.loc
+        sysadmin@firewall.loc
+    }
+    notification_email_from Alexandre.Cassen@firewall.loc
+    smtp_server 192.168.200.1
+    smtp_connect_timeout 30
+    router_id LVS_MASTER
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        10.96.33.230
+    }
+}
+
+virtual_server 10.96.33.230 80 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind DR
+    persistence_timeout 50 #会话保持时间
+    protocol TCP
+
+    real_server 10.96.33.246 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+
+    real_server 10.96.33.249 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+}
+</code></pre></div><p>service keepalived start</p> <h2 id="安装-lvs-backup"><a href="#安装-lvs-backup" class="header-anchor">#</a> 安装 LVS_Backup</h2> <p>与安装 LVS_Master 的区别（共 3 项）如下：<br>
+vi /etc/keepalived/keepalived.conf</p> <div class="language- extra-class"><pre class="language-text"><code>router_id LVS_BACKUP
+state BACKUP
+priority 90
+</code></pre></div><h2 id="安装-realserver1"><a href="#安装-realserver1" class="header-anchor">#</a> 安装 realServer1</h2> <p>service iptables stop<br>
+yum install -y httpd<br>
+service httpd start<br>
+echo 10.96.33.246 &gt; /var/www/html/index.html<br>
+vi /root/dr-rs.sh</p> <div class="language- extra-class"><pre class="language-text"><code>#!/bin/bash
+#
+# Script to start LVS DR real server.
+# description: LVS DR real server
+#
+.  /etc/rc.d/init.d/functions
+VIP=10.96.33.230
+host=`/bin/hostname`
+case &quot;$1&quot; in
+start)
+       # Start LVS-DR real server on this machine.
+        /sbin/ifconfig lo down
+        /sbin/ifconfig lo up
+        echo 1 &gt; /proc/sys/net/ipv4/conf/lo/arp_ignore
+        echo 2 &gt; /proc/sys/net/ipv4/conf/lo/arp_announce
+        echo 1 &gt; /proc/sys/net/ipv4/conf/all/arp_ignore
+        echo 2 &gt; /proc/sys/net/ipv4/conf/all/arp_announce
+        /sbin/ifconfig lo:0 $VIP broadcast $VIP netmask 255.255.255.255 up
+        /sbin/route add -host $VIP dev lo:0
+        echo &quot;LVS RealServer Start OK&quot;
+;;
+stop)
+        # Stop LVS-DR real server loopback device(s).
+        /sbin/ifconfig lo:0 down
+        echo 0 &gt; /proc/sys/net/ipv4/conf/lo/arp_ignore
+        echo 0 &gt; /proc/sys/net/ipv4/conf/lo/arp_announce
+        echo 0 &gt; /proc/sys/net/ipv4/conf/all/arp_ignore
+        echo 0 &gt; /proc/sys/net/ipv4/conf/all/arp_announce
+	/sbin/route del $VIP &gt;/dev/null 2&gt;&amp;1
+        echo &quot;LVS RealServer Stoped OK&quot;
+;;
+status)
+        # Status of LVS-DR real server.
+        islothere=`/sbin/ifconfig lo:0 | grep $VIP`
+        isrothere=`netstat -rn | grep &quot;lo:0&quot; | grep $VIP`
+        if [ ! &quot;$islothere&quot; -o ! &quot;isrothere&quot; ];then
+            # Either the route or the lo:0 device
+            # not found.
+            echo &quot;LVS-DR real server Stopped.&quot;
+        else
+            echo &quot;LVS-DR real server Running.&quot;
+        fi
+;;
+*)
+            # Invalid entry.
+            echo &quot;$0: Usage: $0 {start|status|stop}&quot;
+            exit 1
+;;
+esac
+</code></pre></div><p>chmod +x /root/dr-rs.sh<br>
+/root/dr-rs.sh start<br>
+echo &quot;/root/dr-rs.sh start&quot; &gt;&gt;/etc/rc.local</p> <h2 id="安装-realserver2"><a href="#安装-realserver2" class="header-anchor">#</a> 安装 realServer2</h2> <p>与“安装 realServer1”的区别：<br>
+echo 10.96.33.249 &gt; /var/www/html/index.html</p> <h2 id="安装验证"><a href="#安装验证" class="header-anchor">#</a> 安装验证</h2> <ol><li><p>确认虚拟 IP 地址已在 LVS_Master 上启动<br>
+在 LVS_Master 执行：ip addr show eth0<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624120846.png" alt="20200624120846.png"></p></li> <li><p>确认 LVS 规则已成功配置在 LVS_Master<br>
+在 LVS_Master 执行：ipvsadm -Ln<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624120950.png" alt="20200624120950.png"></p></li> <li><p>查看 LVS_Backup 的 IP<br>
+在 LVS_Backup 执行：ip addr show eth0<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121049.png" alt="20200624121049.png">
+执行结果中没有显示虚拟 IP 是正确的，因为当前分发请求操作是由 LVS_Master 接管。</p></li> <li><p>确认 LVS 规则已成功配置在 LVS_Backup<br>
+在 LVS_Backup 执行：ipvsadm -Ln<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121119.png" alt="20200624121119.png"></p></li> <li><p>模拟 LVS_Master 宕机，分发请求操作由 LVS_Backup 接管<br>
+1&gt; 在 LVS_Master 执行：service keepalived stop<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121134.png" alt="20200624121134.png">
+2&gt; 在 LVS_Backup 执行：ip addr show eth0<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121204.png" alt="20200624121204.png">
+3&gt; 通过 LVS_Backup 的日志可看出 LVS_Backup 开始接管 LVS_Master 的分发请求操作<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121233.png" alt="20200624121233.png"></p></li> <li><p>客户端请求 VIP<br>
+可以浏览器或者 curl 等工具作为客户端。<br>
+LVS_Master、LVS_Backup 中任意一台宕机或者 realServer1、realServer2 任意一台宕机，均不影响业务。</p></li></ol> <h2 id="查看日志"><a href="#查看日志" class="header-anchor">#</a> 查看日志</h2> <p>tail -f /var/log/messages</p> <h2 id="查看请求调度信息"><a href="#查看请求调度信息" class="header-anchor">#</a> 查看请求调度信息</h2> <p>watch -n 1 -d ipvsadm -ln<br>
+watch -n 1 -d ipvsadm -lnc<br>
+ipvsadm --list –timeout</p> <h2 id="rtmp-负载均衡"><a href="#rtmp-负载均衡" class="header-anchor">#</a> RTMP 负载均衡</h2> <ul><li>当客户端断开 rtmp 连接后，LVS 服务器上 ipvsadm –ln 显示的 ActiveConn 短时间内不减少（会导致再次推送相同的发布地址失败），可以通过减少 tcp 空闲等待时间来解决，命令为 ipvsadm --set 1 2 100</li> <li>ipvsadm –set 注意事项
+TCP 连接超时时间一定要小于 TCPFIN 的时间</li> <li>linux 端用 ffmpeg 向同一发布地址推送直播只能推送一次，再次推送会失败，提示信息如下：
+<img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200624121424.png" alt="20200624121424.png"><br>
+然而在 windows 下用 ffmpeg 向同一发布地址推送直播，可以反复推送。不知原因。</li></ul> <h2 id="与-haproxy-区别"><a href="#与-haproxy-区别" class="header-anchor">#</a> 与 HAProxy 区别</h2> <p>客户端必须通过 VIP 访问 LVS，不能通过 LVS 实际 IP 访问。然而，HAProxy 允许通过 LVS 实际 IP 访问。</p></div></div> <div class="page-edit"><!----> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-06-28 22:38:04</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/loadbalance-haproxy-keepalived.html" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">
+        部署负载均衡器HAProxy Keepalived
+      </div></a> <a href="/install-jira.html" class="page-nav-centre page-nav-centre-next"><div class="tooltip">
+        安装JIRA
+      </div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/loadbalance-haproxy-keepalived.html" class="prev">部署负载均衡器HAProxy Keepalived</a></span> <span class="next"><a href="/install-jira.html">安装JIRA</a>
+        →
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-shizhong">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/javascript-insert-html.html"><div>javascript动态插入html片段</div></a> <span>08-04</span></dt></dl><dl><dd>02</dd> <dt><a href="/javascript-template-engine-mustache.html"><div>js模板引擎mustache用法</div></a> <span>08-04</span></dt></dl><dl><dd>03</dd> <dt><a href="/install-pycharm.html"><div>安装配置pycharm</div></a> <span>07-30</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div> </main></div> <div class="footer"><div class="icons"><a href="mailto:645102170@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wangshibiaoFlytiger" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+     | Copyright © 2019-2020
+    <span>王世彪 | MIT License <br/> <a href='http://www.beian.miit.gov.cn'>冀ICP备19016776号-1</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----></div><div class="global-ui"><div></div><!----></div></div>
+    <script src="/assets/js/app.3920ca01.js" defer></script><script src="/assets/js/2.da9fbad5.js" defer></script><script src="/assets/js/108.1f95aab4.js" defer></script><script src="/assets/js/3.dabdee45.js" defer></script>
+  </body>
+</html>

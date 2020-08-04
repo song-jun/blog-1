@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mybatis-plus基础教程 | 全栈直通车-王世彪的博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?12e61954006bab17a5a7dc228772c27b";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+        </script>
+    <script src="https://v1.cnzz.com/z_stat.php?id=1278957718&amp;web_id=1278957718"></script>
+    <script data-ad-client="ca-pub-2310202030754638" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <script src="/assets/js/autopush-baidu.js"></script>
+    <script src="/assets/js/autopush-360.js"></script>
+    <meta name="description" content="全栈直通车-王世彪的博客,分享成功经验，助大家用最短的时间成为全栈软件开发工程师，java,golang,python,php,前端,后台,vue,react,app，linux,运维,docker等应有尽有">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="baidu-site-verification" content="gZcjfbZtAw">
+    <meta name="360-site-verification" content="c87794c984680283c380b401a10321af">
+    <link rel="preload" href="/assets/css/0.styles.bc8d63d8.css" as="style"><link rel="preload" href="/assets/js/app.3920ca01.js" as="script"><link rel="preload" href="/assets/js/2.da9fbad5.js" as="script"><link rel="preload" href="/assets/js/78.3c20a407.js" as="script"><link rel="preload" href="/assets/js/3.dabdee45.js" as="script"><link rel="prefetch" href="/assets/js/10.3f81cd8d.js"><link rel="prefetch" href="/assets/js/100.0c1a2cf5.js"><link rel="prefetch" href="/assets/js/101.18345062.js"><link rel="prefetch" href="/assets/js/102.a3ebead0.js"><link rel="prefetch" href="/assets/js/103.2a0ab48a.js"><link rel="prefetch" href="/assets/js/104.53dcce63.js"><link rel="prefetch" href="/assets/js/105.4f5ee71e.js"><link rel="prefetch" href="/assets/js/106.485e43b4.js"><link rel="prefetch" href="/assets/js/107.64c5a5b7.js"><link rel="prefetch" href="/assets/js/108.1f95aab4.js"><link rel="prefetch" href="/assets/js/109.d0baf30e.js"><link rel="prefetch" href="/assets/js/11.4aa68d63.js"><link rel="prefetch" href="/assets/js/110.62a05312.js"><link rel="prefetch" href="/assets/js/111.97a18863.js"><link rel="prefetch" href="/assets/js/112.0d4da45f.js"><link rel="prefetch" href="/assets/js/113.83a94b05.js"><link rel="prefetch" href="/assets/js/114.cfa34a77.js"><link rel="prefetch" href="/assets/js/115.8f982aba.js"><link rel="prefetch" href="/assets/js/116.79527f03.js"><link rel="prefetch" href="/assets/js/117.408653f4.js"><link rel="prefetch" href="/assets/js/12.b87097a9.js"><link rel="prefetch" href="/assets/js/13.60154ab9.js"><link rel="prefetch" href="/assets/js/14.0992d4fb.js"><link rel="prefetch" href="/assets/js/15.266569ea.js"><link rel="prefetch" href="/assets/js/16.bded0eac.js"><link rel="prefetch" href="/assets/js/17.6830bf0c.js"><link rel="prefetch" href="/assets/js/18.94a60eef.js"><link rel="prefetch" href="/assets/js/19.12fc453e.js"><link rel="prefetch" href="/assets/js/20.d1cb7bac.js"><link rel="prefetch" href="/assets/js/21.97b9ed65.js"><link rel="prefetch" href="/assets/js/22.539e22b6.js"><link rel="prefetch" href="/assets/js/23.3dc2f4da.js"><link rel="prefetch" href="/assets/js/24.967fef0a.js"><link rel="prefetch" href="/assets/js/25.aaaceab2.js"><link rel="prefetch" href="/assets/js/26.0a51fced.js"><link rel="prefetch" href="/assets/js/27.bc0ee3a5.js"><link rel="prefetch" href="/assets/js/28.06b59d0e.js"><link rel="prefetch" href="/assets/js/29.5ff595c2.js"><link rel="prefetch" href="/assets/js/30.74d30592.js"><link rel="prefetch" href="/assets/js/31.36913e0f.js"><link rel="prefetch" href="/assets/js/32.31adf3a2.js"><link rel="prefetch" href="/assets/js/33.5725978e.js"><link rel="prefetch" href="/assets/js/34.4e4b11eb.js"><link rel="prefetch" href="/assets/js/35.721ae5a5.js"><link rel="prefetch" href="/assets/js/36.78996329.js"><link rel="prefetch" href="/assets/js/37.18196a18.js"><link rel="prefetch" href="/assets/js/38.4a99d5e2.js"><link rel="prefetch" href="/assets/js/39.30e78cd9.js"><link rel="prefetch" href="/assets/js/4.d8493e59.js"><link rel="prefetch" href="/assets/js/40.8193f603.js"><link rel="prefetch" href="/assets/js/41.274a8acb.js"><link rel="prefetch" href="/assets/js/42.a0325a28.js"><link rel="prefetch" href="/assets/js/43.919ad4f7.js"><link rel="prefetch" href="/assets/js/44.2aa6623c.js"><link rel="prefetch" href="/assets/js/45.8969380c.js"><link rel="prefetch" href="/assets/js/46.7975a128.js"><link rel="prefetch" href="/assets/js/47.4f07d191.js"><link rel="prefetch" href="/assets/js/48.b15a3bde.js"><link rel="prefetch" href="/assets/js/49.f1c3c20d.js"><link rel="prefetch" href="/assets/js/5.7da3fbc8.js"><link rel="prefetch" href="/assets/js/50.c32be27f.js"><link rel="prefetch" href="/assets/js/51.779c1cbc.js"><link rel="prefetch" href="/assets/js/52.4a7afa72.js"><link rel="prefetch" href="/assets/js/53.e8ee40ec.js"><link rel="prefetch" href="/assets/js/54.3bcef2ed.js"><link rel="prefetch" href="/assets/js/55.923098e5.js"><link rel="prefetch" href="/assets/js/56.d046890a.js"><link rel="prefetch" href="/assets/js/57.838d1b4d.js"><link rel="prefetch" href="/assets/js/58.7fc3f8cd.js"><link rel="prefetch" href="/assets/js/59.1facd852.js"><link rel="prefetch" href="/assets/js/6.10d07598.js"><link rel="prefetch" href="/assets/js/60.855f5f6a.js"><link rel="prefetch" href="/assets/js/61.b1e74e45.js"><link rel="prefetch" href="/assets/js/62.55d7ef77.js"><link rel="prefetch" href="/assets/js/63.561af5f0.js"><link rel="prefetch" href="/assets/js/64.3be3157c.js"><link rel="prefetch" href="/assets/js/65.c39d3e83.js"><link rel="prefetch" href="/assets/js/66.5689a3a0.js"><link rel="prefetch" href="/assets/js/67.18333a76.js"><link rel="prefetch" href="/assets/js/68.6c699cd3.js"><link rel="prefetch" href="/assets/js/69.9e057e23.js"><link rel="prefetch" href="/assets/js/7.80031788.js"><link rel="prefetch" href="/assets/js/70.6de833a0.js"><link rel="prefetch" href="/assets/js/71.502064d3.js"><link rel="prefetch" href="/assets/js/72.3efae482.js"><link rel="prefetch" href="/assets/js/73.753b8877.js"><link rel="prefetch" href="/assets/js/74.40e72114.js"><link rel="prefetch" href="/assets/js/75.21235cfe.js"><link rel="prefetch" href="/assets/js/76.868909a0.js"><link rel="prefetch" href="/assets/js/77.cbbad6c0.js"><link rel="prefetch" href="/assets/js/79.892074e4.js"><link rel="prefetch" href="/assets/js/8.cf7e5901.js"><link rel="prefetch" href="/assets/js/80.f082a839.js"><link rel="prefetch" href="/assets/js/81.436f280f.js"><link rel="prefetch" href="/assets/js/82.ac92782b.js"><link rel="prefetch" href="/assets/js/83.667a3f43.js"><link rel="prefetch" href="/assets/js/84.c20faa0e.js"><link rel="prefetch" href="/assets/js/85.fad090c4.js"><link rel="prefetch" href="/assets/js/86.5de1be43.js"><link rel="prefetch" href="/assets/js/87.98da1e56.js"><link rel="prefetch" href="/assets/js/88.cea0ae79.js"><link rel="prefetch" href="/assets/js/89.c882713a.js"><link rel="prefetch" href="/assets/js/9.64caa871.js"><link rel="prefetch" href="/assets/js/90.531d67ab.js"><link rel="prefetch" href="/assets/js/91.83872dfc.js"><link rel="prefetch" href="/assets/js/92.9e7a2d88.js"><link rel="prefetch" href="/assets/js/93.1a06a70a.js"><link rel="prefetch" href="/assets/js/94.e3a405dc.js"><link rel="prefetch" href="/assets/js/95.c7df6e2f.js"><link rel="prefetch" href="/assets/js/96.63cef1a8.js"><link rel="prefetch" href="/assets/js/97.683518fa.js"><link rel="prefetch" href="/assets/js/98.80086ada.js"><link rel="prefetch" href="/assets/js/99.a980ae1b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bc8d63d8.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">全栈直通车-王世彪的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" class="nav-link">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/shuaige.jpg"> <div class="blogger-info"><h3>王世彪</h3> <span>
+        努力做个影响他人滴人
+      </span></div></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/free-cdn.html" class="nav-link">cdn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><a href="/back/" class="link-title">后台</a> <span class="title" style="display:none;">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/install-redis-cluster.html" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/install-php7.html" class="nav-link">php</a></li><li class="dropdown-item"><!----> <a href="/install-python3.html" class="nav-link">python</a></li><li class="dropdown-item"><!----> <a href="/tomcat-jmx.html" class="nav-link">tomcat</a></li><li class="dropdown-item"><!----> <a href="/install-elk.html" class="nav-link">elk</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><a href="/ops/" class="link-title">运维</a> <span class="title" style="display:none;">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/nginx-https.html" class="nav-link">nginx配置https</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其它" class="dropdown-title"><a href="/other/" class="link-title">其它</a> <span class="title" style="display:none;">其它</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/markdown-usage.html" class="nav-link">markdown用法</a></li><li class="dropdown-item"><!----> <a href="/vuepress-catalog.html" class="nav-link">vuepress教程</a></li><li class="dropdown-item"><!----> <a href="/java-interview.html" class="nav-link">面试</a></li></ul></div></div><div class="nav-item"><a href="/appreciate.html" class="nav-link">赞一个</a></div><div class="nav-item"><a href="/friendlink.html" class="nav-link">友链</a></div><div class="nav-item"><a href="/contact-author.html" class="nav-link">联系作者</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>redis</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>memcached</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mysql</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>mongodb</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>c或c++</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>php</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>java</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-install-Nexus.html" class="sidebar-link">安装maven仓库Nexus</a></li><li><a href="/mybatis-basic.html" aria-current="page" class="active sidebar-link">mybatis-plus基础教程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/mybatis-basic.html#基于-gradle-创建-springboot-项目" class="sidebar-link">基于 gradle 创建 springboot 项目</a></li><li class="sidebar-sub-header"><a href="/mybatis-basic.html#集成-mybatis-plus" class="sidebar-link">集成 mybatis-plus</a></li></ul></li><li><a href="/mybatis-page.html" class="sidebar-link">mybatis-plus分页</a></li><li><a href="/gradle-common-issues.html" class="sidebar-link">gradle常见问题</a></li><li><a href="/springboot-swagger.html" class="sidebar-link">springboot集成swagger</a></li><li><a href="/springboot-global-cors.html" class="sidebar-link">springboot 全局配置CORS跨域</a></li><li><a href="/springboot-json-custom-datetime-format.html" class="sidebar-link">springboot自定义json转换后的时间格式</a></li><li><a href="/springboot-para-validation.html" class="sidebar-link">springboot接口参数校验</a></li><li><a href="/springboot-long-json-lose-precision.html" class="sidebar-link">springboot Long类型json转换丢失精度</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>nodejs</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>tomcat</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>elk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>音视频流媒体</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"> <div class="theme-vdoing-wrapper"><div class="articleInfo-wrap" data-v-14888ed5><div class="articleInfo" data-v-14888ed5><ul class="breadcrumbs" data-v-14888ed5><li data-v-14888ed5><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-14888ed5></a></li> <li data-v-14888ed5><a href="/categories/?category=%E5%90%8E%E5%8F%B0" title="分类" data-v-14888ed5>后台</a></li> <li data-v-14888ed5><a href="/categories/?category=java" title="分类" data-v-14888ed5>java</a></li></ul> <div class="info" data-v-14888ed5><div title="作者" class="author iconfont icon-touxiang" data-v-14888ed5><a href="https://github.com/wangshibiaoFlytiger" target="_blank" title="作者" class="beLink" data-v-14888ed5>王世彪</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-14888ed5><a href="javascript:;" data-v-14888ed5>2020-07-02</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">
+          mybatis-plus基础教程
+        </h1> <div class="theme-vdoing-content content__default"><h1 id="mybatis-plus-基础教程"><a href="#mybatis-plus-基础教程" class="header-anchor">#</a> mybatis-plus 基础教程</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>使用 java 开发项目，orm 框架就选 mybatis-plus，其它的都是小弟。</p></div> <p>mybatis-plus 是基于 mybatis 开发而来，在 MyBatis 的基础上只做增强不做改变。<br>
+使用 mybatis-plus 可以大大提高开发效率，运用自带的代码生成工具，可以几秒钟实现从数据库生成基础的 entity、dao、service、controller 代码.</p> <p><a href="https://mp.baomidou.com/guide/#%E7%89%B9%E6%80%A7" target="_blank" rel="noopener noreferrer">官方文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的内容较多，本教程删繁就简，带您立刻入门！</p> <h2 id="基于-gradle-创建-springboot-项目"><a href="#基于-gradle-创建-springboot-项目" class="header-anchor">#</a> 基于 gradle 创建 springboot 项目</h2> <p>使用 idea 自带的 Spring Initializr 初始化 springboot 项目.<br> <img src="https://cdn.jsdelivr.net/gh/wangshibiaoFlytiger/blog_picBed1/images/20200702085651.png" alt="20200702085651.png"></p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>若初始化后的项目编译失败, 解决方法详见<a href="/gradle-common-issues.html#初始化后的项目编译失败">初始化后的项目编译失败</a></p></div> <h2 id="集成-mybatis-plus"><a href="#集成-mybatis-plus" class="header-anchor">#</a> 集成 mybatis-plus</h2> <h3 id="添加依赖"><a href="#添加依赖" class="header-anchor">#</a> 添加依赖</h3> <div class="language- extra-class"><pre class="language-text"><code>    /****************** start mybatis-plus *****************/
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.3.2'
+//    反向代码生成器
+    compile 'com.baomidou:mybatis-plus-generator:3.3.2'
+//    freemarker模板引擎,mybatis-plus的代码生成工具可以使用该模板引擎生成代码
+    compile 'org.freemarker:freemarker:2.3.30'
+    /****************** end mybatis-plus *****************/
+</code></pre></div><h3 id="主函数的类上添加注解-mapperscan"><a href="#主函数的类上添加注解-mapperscan" class="header-anchor">#</a> 主函数的类上添加注解 MapperScan</h3> <div class="language- extra-class"><pre class="language-text"><code>@SpringBootApplication
+@MapperScan(&quot;com.ruiboyun.facehr.**.mapper&quot;)
+public class FacehrApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FacehrApplication.class, args);
+    }
+
+}
+</code></pre></div><h3 id="使用代码生成器逆向工程"><a href="#使用代码生成器逆向工程" class="header-anchor">#</a> 使用代码生成器逆向工程</h3> <p>通过代码生成器，从数据库反向生成 java 代码。</p> <ul><li>创建一个工具类 MybatisAutoGenerator<br>
+只需要修改类中的&quot;作者信息&quot;,&quot;包名&quot;,&quot;数据库信息&quot;, 即可在任何项目中使用</li></ul> <div class="language- extra-class"><pre class="language-text"><code>package com.ruiboyun.facehr.util;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * mybatis-plus的代码生成器
+ * 只需要修改类中的&quot;作者信息&quot;,&quot;包名&quot;,&quot;数据库信息&quot;, 即可在任何项目中使用
+ * 使用方法: 执行main函数即可
+ */
+public class MybatisAutoGenerator {
+    /**
+     * &lt;p&gt;
+     * 读取控制台内容
+     * &lt;/p&gt;
+     */
+    public static String scanner(String tip) {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder help = new StringBuilder();
+        help.append(&quot;请输入&quot; + tip + &quot;：&quot;);
+        System.out.println(help.toString());
+        if (scanner.hasNext()) {
+            String ipt = scanner.next();
+            if (StringUtils.isNotEmpty(ipt)) {
+                return ipt;
+            }
+        }
+        throw new MybatisPlusException(&quot;请输入正确的&quot; + tip + &quot;！&quot;);
+    }
+
+    public static void main(String[] args) {
+        // 代码生成器
+        AutoGenerator mpg = new AutoGenerator();
+
+        // 全局配置
+        GlobalConfig gc = new GlobalConfig();
+        String projectPath = System.getProperty(&quot;user.dir&quot;);
+        gc.setOutputDir(projectPath + &quot;/src/main/java&quot;);
+        gc.setAuthor(&quot;Wang Shibiao&quot;);
+        gc.setOpen(false);
+
+//        ID生成策略配置为雪花算法
+        gc.setIdType(IdType.ASSIGN_ID);
+
+        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        mpg.setGlobalConfig(gc);
+
+        // 数据源配置
+        DataSourceConfig dsc = new DataSourceConfig();
+        dsc.setUrl(&quot;jdbc:mysql://localhost:3306/facehr?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8&quot;);
+        // dsc.setSchemaName(&quot;public&quot;);
+        dsc.setDriverName(&quot;com.mysql.jdbc.Driver&quot;);
+        dsc.setUsername(&quot;root&quot;);
+        dsc.setPassword(&quot;123456&quot;);
+        mpg.setDataSource(dsc);
+
+        // 包配置
+        PackageConfig pc = new PackageConfig();
+        pc.setModuleName(scanner(&quot;模块名&quot;));
+        pc.setParent(&quot;com.ruiboyun.facehr&quot;);
+        mpg.setPackageInfo(pc);
+
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
+            }
+        };
+
+        // 如果模板引擎是 freemarker
+        String templatePath = &quot;/templates/mapper.xml.ftl&quot;;
+        // 如果模板引擎是 velocity
+        // String templatePath = &quot;/templates/mapper.xml.vm&quot;;
+
+        // 自定义输出配置
+        List&lt;FileOutConfig&gt; focList = new ArrayList&lt;&gt;();
+        // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
+                return projectPath + &quot;/src/main/resources/mapper/&quot; + pc.getModuleName()
+                        + &quot;/&quot; + tableInfo.getEntityName() + &quot;Mapper&quot; + StringPool.DOT_XML;
+            }
+        });
+        /*
+        cfg.setFileCreate(new IFileCreate() {
+            @Override
+            public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
+                // 判断自定义文件夹是否需要创建
+                checkDir(&quot;调用默认方法创建的目录，自定义目录用&quot;);
+                if (fileType == FileType.MAPPER) {
+                    // 已经生成 mapper 文件判断存在，不想重新生成返回 false
+                    return !new File(filePath).exists();
+                }
+                // 允许生成模板文件
+                return true;
+            }
+        });
+        */
+        cfg.setFileOutConfigList(focList);
+        mpg.setCfg(cfg);
+
+        // 配置模板
+        TemplateConfig templateConfig = new TemplateConfig();
+
+        // 配置自定义输出模板
+        //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
+        // templateConfig.setEntity(&quot;templates/entity2.java&quot;);
+        // templateConfig.setService();
+        // templateConfig.setController();
+
+        templateConfig.setXml(null);
+        mpg.setTemplate(templateConfig);
+
+        // 策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+//        strategy.setSuperEntityClass(&quot;你自己的父类实体,没有就不用设置!&quot;);
+        strategy.setEntityLombokModel(true);
+        strategy.setRestControllerStyle(true);
+        // 公共父类
+//        strategy.setSuperControllerClass(&quot;你自己的父类控制器,没有就不用设置!&quot;);
+        // 写于父类中的公共字段
+//        strategy.setSuperEntityColumns(&quot;id&quot;);
+        strategy.setInclude(scanner(&quot;表名，多个英文逗号分割&quot;).split(&quot;,&quot;));
+        strategy.setControllerMappingHyphenStyle(true);
+//        strategy.setTablePrefix(pc.getModuleName() + &quot;_&quot;);
+        mpg.setStrategy(strategy);
+        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+        mpg.execute();
+    }
+}
+
+</code></pre></div><ul><li>运行工具类的 main 函数
+根据提示进行操作即可，最终会自动生成 model、dao、service、controller 层代码。</li></ul> <h3 id="数据库配置"><a href="#数据库配置" class="header-anchor">#</a> 数据库配置</h3> <div class="language- extra-class"><pre class="language-text"><code>#spring
+spring:
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://localhost/facehr
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+</code></pre></div></div></div> <div class="page-edit"><!----> <div class="tags"><a href="/tags/?tag=java" title="标签">
+      #java
+    </a><a href="/tags/?tag=mybatis" title="标签">
+      #mybatis
+    </a><a href="/tags/?tag=orm" title="标签">
+      #orm
+    </a></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-07-02 09:31:45</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/java-install-Nexus.html" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">
+        安装maven仓库Nexus
+      </div></a> <a href="/mybatis-page.html" class="page-nav-centre page-nav-centre-next"><div class="tooltip">
+        mybatis-plus分页
+      </div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/java-install-Nexus.html" class="prev">安装maven仓库Nexus</a></span> <span class="next"><a href="/mybatis-page.html">mybatis-plus分页</a>
+        →
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-shizhong">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/javascript-insert-html.html"><div>javascript动态插入html片段</div></a> <span>08-04</span></dt></dl><dl><dd>02</dd> <dt><a href="/javascript-template-engine-mustache.html"><div>js模板引擎mustache用法</div></a> <span>08-04</span></dt></dl><dl><dd>03</dd> <dt><a href="/install-pycharm.html"><div>安装配置pycharm</div></a> <span>07-30</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div> </main></div> <div class="footer"><div class="icons"><a href="mailto:645102170@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wangshibiaoFlytiger" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+     | Copyright © 2019-2020
+    <span>王世彪 | MIT License <br/> <a href='http://www.beian.miit.gov.cn'>冀ICP备19016776号-1</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----></div><div class="global-ui"><div></div><!----></div></div>
+    <script src="/assets/js/app.3920ca01.js" defer></script><script src="/assets/js/2.da9fbad5.js" defer></script><script src="/assets/js/78.3c20a407.js" defer></script><script src="/assets/js/3.dabdee45.js" defer></script>
+  </body>
+</html>
